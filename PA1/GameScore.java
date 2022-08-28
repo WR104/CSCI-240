@@ -21,6 +21,7 @@ public class GameScore {
         board.add(e);
         board = board.stream().sorted(Comparator.comparing(MyGameEntry::getScore).reversed())
                 .collect(Collectors.toList());// sort the list through scores
+        nums += 1;
     }
 
     public void print(){
