@@ -39,4 +39,8 @@ public class Exercise {
         for (int n=5;n<=100;n+=5)
         System.out.println(n+"        "+birthdayParadox(n));
     }
+
+    public long EC1(int i){
+        return (1L << i);
+    }
 }
