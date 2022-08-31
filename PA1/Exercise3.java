@@ -1,6 +1,6 @@
 package PA1;
 
-public class Exercise3 extends JavaSourceCode.dsaj.design.Progression {
+public class Exercise3 extends dsaj.design.Progression {
     protected long next;
 
     public Exercise3(){
