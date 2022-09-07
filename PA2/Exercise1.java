@@ -38,4 +38,11 @@ public class Exercise1{
             System.out.print(names[i]+" ");
         System.out.println();
     }
+
+    public void recPring(int count){    //count start from 0
+        if(count == nums)
+            return;
+        System.out.println(names[count]);
+        recPring(count + 1);
+    }
 }

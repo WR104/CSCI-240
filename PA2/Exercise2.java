@@ -59,4 +59,11 @@ public class Exercise2 {
             curr = curr.next;
         }
     }
+
+    public void recPrint(Node node){    //node start from head
+        if(node == null)
+            return;
+        System.out.println(node.data);
+        recPrint(node.next);
+    }
 }
