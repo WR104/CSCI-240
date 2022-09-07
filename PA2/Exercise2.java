@@ -54,7 +54,7 @@ public class Exercise2 {
 
     public void print() {
         Node curr = head;
-        while (curr != null ) {
+        while (curr != null) {
             System.out.println(curr.data);
             curr = curr.next;
         }
