@@ -1,0 +1,36 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Traversal</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Traversal</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;					<font color=#0000FF>// recursive traversal</font>
+  <font color=#A000A0>void</font> DFS&lt;G&gt;::<font color=#000000>dfsTraversal</font>(<font color=#A000A0>const</font> Vertex& v) {
+    <font color=#000000>startVisit</font>(v);  <font color=#000000>visit</font>(v);				<font color=#0000FF>// visit v and mark visited</font>
+    EdgeList incident = v.<font color=#000000>incidentEdges</font>();
+    EdgeItor pe = incident.<font color=#000000>begin</font>(); 
+    <font color=#00A000>while</font> (!<font color=#000000>isDone</font>() && pe != incident.<font color=#000000>end</font>()) {		<font color=#0000FF>// visit v's incident edges</font>
+      Edge e = *pe++;
+      <font color=#00A000>if</font> (!<font color=#000000>isVisited</font>(e)) {				<font color=#0000FF>// discovery edge?</font>
+        <font color=#000000>visit</font>(e);					<font color=#0000FF>// mark it visited</font>
+        Vertex w = e.<font color=#000000>opposite</font>(v);			<font color=#0000FF>// get opposing vertex</font>
+        <font color=#00A000>if</font> (!<font color=#000000>isVisited</font>(w)) {				<font color=#0000FF>// unexplored?</font>
+          <font color=#000000>traverseDiscovery</font>(e, v);			<font color=#0000FF>// let's discover it</font>
+          <font color=#00A000>if</font> (!<font color=#000000>isDone</font>()) <font color=#000000>dfsTraversal</font>(w);		<font color=#0000FF>// continue traversal</font>
+        }
+        <font color=#00A000>else</font> <font color=#000000>traverseBack</font>(e, v);			<font color=#0000FF>// process back edge</font>
+      }
+    }
+    <font color=#00A000>if</font> (!<font color=#000000>isDone</font>()) <font color=#000000>finishVisit</font>(v);			<font color=#0000FF>// finished with v</font>
+  }
+</dl>
+
+</body>
+</html>

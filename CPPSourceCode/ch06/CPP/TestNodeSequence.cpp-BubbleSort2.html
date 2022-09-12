@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>BubbleSort2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: BubbleSort2</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>void</font> <font color=#000000>bubbleSort2</font>(Sequence& S) {			<font color=#0000FF>// bubble-sort by positions</font>
+    <font color=#A000A0>int</font> n = S.<font color=#000000>size</font>();
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; n; i++) {			<font color=#0000FF>// i-th pass</font>
+      Sequence::Iterator prec = S.<font color=#000000>begin</font>();		<font color=#0000FF>// predecessor</font>
+      <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = 1; j &lt; n-i; j++) {
+        Sequence::Iterator succ = prec;
+        ++succ;						<font color=#0000FF>// successor</font>
+        <font color=#00A000>if</font> (*prec &gt; *succ) {				<font color=#0000FF>// swap if out of order</font>
+          <font color=#A000A0>int</font> tmp = *prec; *prec = *succ; *succ = tmp;
+        }
+        ++prec;						<font color=#0000FF>// advance predecessor</font>
+      }
+    }
+  }
+</dl>
+
+</body>
+</html>

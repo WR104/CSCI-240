@@ -1,0 +1,28 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Overridden</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Overridden</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;					<font color=#0000FF>// visit vertex</font>
+  <font color=#A000A0>void</font> FindPath&lt;G&gt;::<font color=#000000>startVisit</font>(<font color=#A000A0>const</font> Vertex& v) {
+    path.<font color=#000000>push_back</font>(v); 					<font color=#0000FF>// insert into path</font>
+    <font color=#00A000>if</font> (v == target) done = <font color=#A000A0>true</font>;			<font color=#0000FF>// reached target vertex</font>
+  }
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;					<font color=#0000FF>// finished with vertex</font>
+  <font color=#A000A0>void</font> FindPath&lt;G&gt;::<font color=#000000>finishVisit</font>(<font color=#A000A0>const</font> Vertex& v)
+    { <font color=#00A000>if</font> (!done) path.<font color=#000000>pop_back</font>(); }			<font color=#0000FF>// remove last vertex</font>
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt; 				<font color=#0000FF>// done yet?</font>
+  <font color=#A000A0>bool</font> FindPath&lt;G&gt;::<font color=#000000>isDone</font>() <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> done; }
+</dl>
+
+</body>
+</html>

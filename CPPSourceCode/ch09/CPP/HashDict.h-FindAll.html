@@ -1,0 +1,26 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>FindAll</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: FindAll</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// find all entries with k</font>
+  <font color=#A000A0>typename</font> HashDict&lt;K,V,H&gt;::Range HashDict&lt;K,V,H&gt;::<font color=#000000>findAll</font>(<font color=#A000A0>const</font> K& k) {
+    Iterator b = <font color=#000000>finder</font>(k);				<font color=#0000FF>// look up k</font>
+    Iterator p = b;
+    <font color=#00A000>while</font> (!<font color=#000000>endOfBkt</font>(p) && (*p).<font color=#000000>key</font>() == (*b).<font color=#000000>key</font>()) {	<font color=#0000FF>// find next unequal key</font>
+      ++p;
+    }
+    <font color=#00A000>return</font> <font color=#000000>Range</font>(b, p);					<font color=#0000FF>// return range of positions</font>
+  }
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;
+  <font color=#A000A0>class</font> ListPriorityQueue { 
+  <font color=#A000A0>public</font>:
+    <font color=#A000A0>int</font> <font color=#000000>size</font>() <font color=#A000A0>const</font>;				<font color=#0000FF>// number of elements</font>
+    <font color=#A000A0>bool</font> <font color=#000000>empty</font>() <font color=#A000A0>const</font>;				<font color=#0000FF>// is the queue empty?</font>
+    <font color=#A000A0>void</font> <font color=#000000>insert</font>(<font color=#A000A0>const</font> E& e);			<font color=#0000FF>// insert element</font>
+    <font color=#A000A0>const</font> E& <font color=#000000>min</font>() <font color=#A000A0>const</font>;			<font color=#0000FF>// minimum element</font>
+    <font color=#A000A0>void</font> <font color=#000000>removeMin</font>();				<font color=#0000FF>// remove minimum</font>
+  <font color=#A000A0>private</font>:
+    std::list&lt;E&gt; L;				<font color=#0000FF>// priority queue contents</font>
+    C isLess;					<font color=#0000FF>// less-than comparator</font>
+  };
+</dl>
+
+</body>
+</html>

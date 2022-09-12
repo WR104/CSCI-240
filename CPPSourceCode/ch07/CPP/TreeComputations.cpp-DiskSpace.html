@@ -1,0 +1,27 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>DiskSpace</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: DiskSpace</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>int</font> <font color=#000000>diskSpace</font>(<font color=#A000A0>const</font> Tree& T, <font color=#A000A0>const</font> Position& p) {
+    <font color=#A000A0>int</font> s = <font color=#000000>size</font>(p);				<font color=#0000FF>// start with size of p</font>
+    <font color=#00A000>if</font> (!p.<font color=#000000>isExternal</font>()) {			<font color=#0000FF>// if p is internal</font>
+      PositionList ch = p.<font color=#000000>children</font>();		<font color=#0000FF>// list of p's children</font>
+      <font color=#00A000>for</font> (Iterator q = ch.<font color=#000000>begin</font>(); q != ch.<font color=#000000>end</font>(); ++q)
+        s += <font color=#000000>diskSpace</font>(T, *q);			<font color=#0000FF>// sum the space of subtrees</font>
+      cout &lt;&lt; <font color=#000000>name</font>(p) &lt;&lt; <font color=#0000FF>": "</font> &lt;&lt; s &lt;&lt; endl;	<font color=#0000FF>// print summary</font>
+    }
+    <font color=#00A000>return</font> s;
+  }
+</dl>
+
+</body>
+</html>

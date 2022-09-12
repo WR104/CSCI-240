@@ -1,0 +1,33 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>QuickSortStep</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: QuickSortStep</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;
+  <font color=#A000A0>void</font> <font color=#000000>quickSortStep</font>(std::vector&lt;E&gt;& S, <font color=#A000A0>int</font> a, <font color=#A000A0>int</font> b, <font color=#A000A0>const</font> C& less) {
+    <font color=#00A000>if</font> (a &gt;= b) <font color=#00A000>return</font>;					<font color=#0000FF>// 0 or 1 left? done</font>
+    E pivot = S[b];					<font color=#0000FF>// select last as pivot</font>
+    <font color=#A000A0>int</font> l = a; 						<font color=#0000FF>// left edge</font>
+    <font color=#A000A0>int</font> r = b - 1;					<font color=#0000FF>// right edge</font>
+    <font color=#00A000>while</font> (l &lt;= r) {
+      <font color=#00A000>while</font> (l &lt;= r && !<font color=#000000>less</font>(pivot, S[l])) l++;		<font color=#0000FF>// scan right till larger</font>
+      <font color=#00A000>while</font> (r &gt;= l && !<font color=#000000>less</font>(S[r], pivot)) r--;		<font color=#0000FF>// scan left till smaller</font>
+      <font color=#00A000>if</font> (l &lt; r)					<font color=#0000FF>// both elements found</font>
+        std::<font color=#000000>swap</font>(S[l], S[r]);
+    }							<font color=#0000FF>// until indices cross</font>
+    std::<font color=#000000>swap</font>(S[l], S[b]);				<font color=#0000FF>// store pivot at l</font>
+    <font color=#000000>quickSortStep</font>(S, a, l-1, less);			<font color=#0000FF>// recur on both sides</font>
+    <font color=#000000>quickSortStep</font>(S, l+1, b, less);
+  }
+</dl>
+
+</body>
+</html>

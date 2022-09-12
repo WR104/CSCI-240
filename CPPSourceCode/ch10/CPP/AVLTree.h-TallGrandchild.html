@@ -1,0 +1,45 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>TallGrandchild</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: TallGrandchild</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// set height utility</font>
+  <font color=#A000A0>void</font> AVLTree&lt;E&gt;::<font color=#000000>setHeight</font>(TPos v) {
+    <font color=#A000A0>int</font> hl = <font color=#000000>height</font>(v.<font color=#000000>left</font>());
+    <font color=#A000A0>int</font> hr = <font color=#000000>height</font>(v.<font color=#000000>right</font>());
+    v-&gt;<font color=#000000>setHeight</font>(1 + std::<font color=#000000>max</font>(hl, hr));			<font color=#0000FF>// max of left & right</font>
+  }
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// is v balanced?</font>
+  <font color=#A000A0>bool</font> AVLTree&lt;E&gt;::<font color=#000000>isBalanced</font>(<font color=#A000A0>const</font> TPos& v) <font color=#A000A0>const</font> {	
+    <font color=#A000A0>int</font> bal = <font color=#000000>height</font>(v.<font color=#000000>left</font>()) - <font color=#000000>height</font>(v.<font color=#000000>right</font>());
+    <font color=#00A000>return</font> ((-1 &lt;= bal) && (bal &lt;= 1));
+  }
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// get tallest grandchild</font>
+  <font color=#A000A0>typename</font> AVLTree&lt;E&gt;::TPos AVLTree&lt;E&gt;::<font color=#000000>tallGrandchild</font>(<font color=#A000A0>const</font> TPos& z) <font color=#A000A0>const</font> {
+    TPos zl = z.<font color=#000000>left</font>();
+    TPos zr = z.<font color=#000000>right</font>();
+    <font color=#00A000>if</font> (<font color=#000000>height</font>(zl) &gt;= <font color=#000000>height</font>(zr))			<font color=#0000FF>// left child taller</font>
+      <font color=#00A000>if</font> (<font color=#000000>height</font>(zl.<font color=#000000>left</font>()) &gt;= <font color=#000000>height</font>(zl.<font color=#000000>right</font>()))
+        <font color=#00A000>return</font> zl.<font color=#000000>left</font>();
+      <font color=#00A000>else</font>
+        <font color=#00A000>return</font> zl.<font color=#000000>right</font>();
+    <font color=#00A000>else</font> 						<font color=#0000FF>// right child taller</font>
+      <font color=#00A000>if</font> (<font color=#000000>height</font>(zr.<font color=#000000>right</font>()) &gt;= <font color=#000000>height</font>(zr.<font color=#000000>left</font>()))
+        <font color=#00A000>return</font> zr.<font color=#000000>right</font>();
+      <font color=#00A000>else</font>
+        <font color=#00A000>return</font> zr.<font color=#000000>left</font>();
+  }
+</dl>
+
+</body>
+</html>

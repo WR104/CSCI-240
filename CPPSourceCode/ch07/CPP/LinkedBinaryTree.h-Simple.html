@@ -1,0 +1,27 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Simple</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Simple</font></h2>
+</center><br><dl><dd><pre>
+
+  LinkedBinaryTree::<font color=#000000>LinkedBinaryTree</font>()			<font color=#0000FF>// constructor</font>
+    : <font color=#000000>_root</font>(NULL), <font color=#000000>n</font>(0) { }
+  <font color=#A000A0>int</font> LinkedBinaryTree::<font color=#000000>size</font>() <font color=#A000A0>const</font>			<font color=#0000FF>// number of nodes</font>
+    { <font color=#00A000>return</font> n; }
+  <font color=#A000A0>bool</font> LinkedBinaryTree::<font color=#000000>empty</font>() <font color=#A000A0>const</font>			<font color=#0000FF>// is tree empty?</font>
+    { <font color=#00A000>return</font> <font color=#000000>size</font>() == 0; }
+  LinkedBinaryTree::Position LinkedBinaryTree::<font color=#000000>root</font>() <font color=#A000A0>const</font> <font color=#0000FF>// get the root</font>
+    { <font color=#00A000>return</font> <font color=#000000>Position</font>(_root); }
+  <font color=#A000A0>void</font> LinkedBinaryTree::<font color=#000000>addRoot</font>()			<font color=#0000FF>// add root to empty tree</font>
+    { _root = <font color=#A000A0>new</font> Node; n = 1; }
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Run</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Run</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;					<font color=#0000FF>// find path from s to t</font>
+  <font color=#A000A0>typename</font> FindPath&lt;G&gt;::VertexList FindPath&lt;G&gt;::<font color=#A000A0>operator</font>()(<font color=#A000A0>const</font> Vertex& s, <font color=#A000A0>const</font> Vertex& t) {
+    <font color=#000000>initialize</font>();					<font color=#0000FF>// initialize DFS</font>
+    path.<font color=#000000>clear</font>();					<font color=#0000FF>// clear the path</font>
+    target = t;						<font color=#0000FF>// save the target</font>
+    done = <font color=#A000A0>false</font>;
+    <font color=#000000>dfsTraversal</font>(s);					<font color=#0000FF>// traverse starting at s</font>
+    <font color=#00A000>return</font> path;					<font color=#0000FF>// return the path</font>
+  }
+</dl>
+
+</body>
+</html>

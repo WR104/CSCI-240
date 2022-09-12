@@ -1,0 +1,22 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Trace2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Trace2</font></h2>
+</center><br><dl><dd><pre>
+
+  ArrayStack&lt;string&gt; <font color=#000000>B</font>(10);			<font color=#0000FF>// B = [], size = 0</font>
+  B.<font color=#000000>push</font>(<font color=#0000FF>"Bob"</font>);				<font color=#0000FF>// B = [Bob*], size = 1</font>
+  B.<font color=#000000>push</font>(<font color=#0000FF>"Alice"</font>);				<font color=#0000FF>// B = [Bob, Alice*], size = 2</font>
+  cout &lt;&lt; B.<font color=#000000>top</font>() &lt;&lt; endl;  B.<font color=#000000>pop</font>();		<font color=#0000FF>// B = [Bob*], outputs: Alice</font>
+  B.<font color=#000000>push</font>(<font color=#0000FF>"Eve"</font>);				<font color=#0000FF>// B = [Bob, Eve*], size = 2</font>
+</dl>
+
+</body>
+</html>

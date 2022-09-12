@@ -1,0 +1,32 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Advance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Advance</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// inorder successor</font>
+  <font color=#A000A0>typename</font> SearchTree&lt;E&gt;::Iterator& SearchTree&lt;E&gt;::Iterator::<font color=#A000A0>operator</font>++() {
+    TPos w = v.<font color=#000000>right</font>();
+    <font color=#00A000>if</font> (w.<font color=#000000>isInternal</font>()) {				<font color=#0000FF>// have right subtree?</font>
+      <font color=#00A000>do</font> { v = w; w = w.<font color=#000000>left</font>(); }			<font color=#0000FF>// move down left chain</font>
+      <font color=#00A000>while</font> (w.<font color=#000000>isInternal</font>());
+    }
+    <font color=#00A000>else</font> {
+      w = v.<font color=#000000>parent</font>();					<font color=#0000FF>// get parent</font>
+      <font color=#00A000>while</font> (v == w.<font color=#000000>right</font>())				<font color=#0000FF>// move up right chain</font>
+        { v = w; w = w.<font color=#000000>parent</font>(); }
+      v = w;						<font color=#0000FF>// and first link to left</font>
+    }
+    <font color=#00A000>return</font> *<font color=#A000A0>this</font>;
+  }
+</dl>
+
+</body>
+</html>

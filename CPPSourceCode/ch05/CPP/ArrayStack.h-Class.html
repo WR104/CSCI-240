@@ -1,0 +1,33 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;
+  <font color=#A000A0>class</font> ArrayStack {
+    <font color=#A000A0>enum</font> { DEF_CAPACITY = 100 };		<font color=#0000FF>// default stack capacity</font>
+  <font color=#A000A0>public</font>:
+    <font color=#000000>ArrayStack</font>(<font color=#A000A0>int</font> cap = DEF_CAPACITY);		<font color=#0000FF>// constructor from capacity</font>
+    <font color=#A000A0>int</font> <font color=#000000>size</font>() <font color=#A000A0>const</font>;				<font color=#0000FF>// number of items in the stack</font>
+    <font color=#A000A0>bool</font> <font color=#000000>empty</font>() <font color=#A000A0>const</font>;				<font color=#0000FF>// is the stack empty?</font>
+    <font color=#A000A0>const</font> E& <font color=#000000>top</font>() <font color=#A000A0>const</font> <font color=#00A000>throw</font>(StackEmpty);	<font color=#0000FF>// get the top element</font>
+    <font color=#A000A0>void</font> <font color=#000000>push</font>(<font color=#A000A0>const</font> E& e) <font color=#00A000>throw</font>(StackFull);	<font color=#0000FF>// push element onto stack</font>
+    <font color=#A000A0>void</font> <font color=#000000>pop</font>() <font color=#00A000>throw</font>(StackEmpty);		<font color=#0000FF>// pop the stack</font>
+    <font color=#0000FF>// ...housekeeping functions omitted</font>
+  <font color=#A000A0>private</font>:                                	<font color=#0000FF>// member data</font>
+    E* S;					<font color=#0000FF>// array of stack elements</font>
+    <font color=#A000A0>int</font> capacity;				<font color=#0000FF>// stack capacity</font>
+    <font color=#A000A0>int</font> t;					<font color=#0000FF>// index of the top of the stack</font>
+  };
+</dl>
+
+</body>
+</html>

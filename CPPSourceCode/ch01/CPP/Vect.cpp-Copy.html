@@ -1,0 +1,24 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Copy</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Copy</font></h2>
+</center><br><dl><dd><pre>
+
+  Vect::<font color=#000000>Vect</font>(<font color=#A000A0>const</font> Vect& a) {			<font color=#0000FF>// copy constructor from a</font>
+    size = a.size;				<font color=#0000FF>// copy sizes</font>
+    data = <font color=#A000A0>new</font> <font color=#A000A0>int</font>[size];			<font color=#0000FF>// allocate new array</font>
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; size; i++) {		<font color=#0000FF>// copy the vector contents</font>
+      data[i] = a.data[i];
+    }
+  }
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>class</font> DLinkedList {				<font color=#0000FF>// doubly linked list</font>
+  <font color=#A000A0>public</font>:
+    <font color=#000000>DLinkedList</font>();				<font color=#0000FF>// constructor</font>
+    ~<font color=#000000>DLinkedList</font>();				<font color=#0000FF>// destructor</font>
+    <font color=#A000A0>bool</font> <font color=#000000>empty</font>() <font color=#A000A0>const</font>;				<font color=#0000FF>// is list empty?</font>
+    <font color=#A000A0>const</font> Elem& <font color=#000000>front</font>() <font color=#A000A0>const</font>;			<font color=#0000FF>// get front element</font>
+    <font color=#A000A0>const</font> Elem& <font color=#000000>back</font>() <font color=#A000A0>const</font>;			<font color=#0000FF>// get back element</font>
+    <font color=#A000A0>void</font> <font color=#000000>addFront</font>(<font color=#A000A0>const</font> Elem& e);		<font color=#0000FF>// add to front of list</font>
+    <font color=#A000A0>void</font> <font color=#000000>addBack</font>(<font color=#A000A0>const</font> Elem& e);		<font color=#0000FF>// add to back of list</font>
+    <font color=#A000A0>void</font> <font color=#000000>removeFront</font>();				<font color=#0000FF>// remove from front</font>
+    <font color=#A000A0>void</font> <font color=#000000>removeBack</font>();				<font color=#0000FF>// remove from back</font>
+  <font color=#A000A0>private</font>:					<font color=#0000FF>// local type definitions</font>
+    DNode* header;				<font color=#0000FF>// list sentinels</font>
+    DNode* trailer;
+  <font color=#A000A0>protected</font>:					<font color=#0000FF>// local utilities</font>
+    <font color=#A000A0>void</font> <font color=#000000>add</font>(DNode* v, <font color=#A000A0>const</font> Elem& e);		<font color=#0000FF>// insert new node before v</font>
+    <font color=#A000A0>void</font> <font color=#000000>remove</font>(DNode* v);			<font color=#0000FF>// remove node v</font>
+  };
+</dl>
+
+</body>
+</html>

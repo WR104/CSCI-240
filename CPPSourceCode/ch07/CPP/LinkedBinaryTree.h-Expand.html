@@ -1,0 +1,26 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Expand</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Expand</font></h2>
+</center><br><dl><dd><pre>
+
+							<font color=#0000FF>// expand external node</font>
+  <font color=#A000A0>void</font> LinkedBinaryTree::<font color=#000000>expandExternal</font>(<font color=#A000A0>const</font> Position& p) {
+    Node* v = p.v;					<font color=#0000FF>// p's node</font>
+    v-&gt;left = <font color=#A000A0>new</font> Node;					<font color=#0000FF>// add a new left child</font>
+    v-&gt;left-&gt;par = v;					<font color=#0000FF>// v is its parent</font>
+    v-&gt;right = <font color=#A000A0>new</font> Node;				<font color=#0000FF>// and a new right child</font>
+    v-&gt;right-&gt;par = v;					<font color=#0000FF>// v is its parent</font>
+    n += 2;						<font color=#0000FF>// two more nodes</font>
+  }
+</dl>
+
+</body>
+</html>

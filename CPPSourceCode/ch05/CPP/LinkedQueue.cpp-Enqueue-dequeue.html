@@ -1,0 +1,30 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Enqueue-dequeue</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Enqueue-dequeue</font></h2>
+</center><br><dl><dd><pre>
+
+  						<font color=#0000FF>// enqueue element at rear</font>
+  <font color=#A000A0>void</font> LinkedQueue::<font color=#000000>enqueue</font>(<font color=#A000A0>const</font> Elem& e) {
+    C.<font color=#000000>add</font>(e);					<font color=#0000FF>// insert after cursor</font>
+    C.<font color=#000000>advance</font>();				<font color=#0000FF>// ...and advance</font>
+    n++;
+  }
+  						<font color=#0000FF>// dequeue element at front</font>
+  <font color=#A000A0>void</font> LinkedQueue::<font color=#000000>dequeue</font>() <font color=#00A000>throw</font>(QueueEmpty) {
+    <font color=#00A000>if</font> (<font color=#000000>empty</font>())
+      <font color=#00A000>throw</font> <font color=#000000>QueueEmpty</font>(<font color=#0000FF>"dequeue of empty queue"</font>);
+    C.<font color=#000000>remove</font>();					<font color=#0000FF>// remove from list front</font>
+    n--;
+  }
+</dl>
+
+</body>
+</html>

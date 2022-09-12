@@ -1,0 +1,46 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>CreditCardCPP</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: CreditCardCPP</font></h2>
+</center><br><dl><dd><pre>
+
+#include <font color=#0000FF>"CreditCard.h"</font>				<font color=#0000FF>// provides CreditCard</font>
+
+<font color=#A000A0>using</font> <font color=#A000A0>namespace</font> std;				<font color=#0000FF>// make std:: accessible</font>
+						<font color=#0000FF>// standard constructor</font>
+CreditCard::<font color=#000000>CreditCard</font>(<font color=#A000A0>const</font> string& no, <font color=#A000A0>const</font> string& nm, <font color=#A000A0>int</font> lim, <font color=#A000A0>double</font> bal) {
+  number = no;
+  name = nm;
+  balance = bal;
+  limit = lim;
+}
+    						<font color=#0000FF>// make a charge </font>
+<font color=#A000A0>bool</font> CreditCard::<font color=#000000>chargeIt</font>(<font color=#A000A0>double</font> price) {
+  <font color=#00A000>if</font> (price + balance &gt; <font color=#A000A0>double</font>(limit)) 
+    <font color=#00A000>return</font> <font color=#A000A0>false</font>;				<font color=#0000FF>// over limit</font>
+  balance += price;
+  <font color=#00A000>return</font> <font color=#A000A0>true</font>;					<font color=#0000FF>// the charge goes through</font>
+}
+
+<font color=#A000A0>void</font> CreditCard::<font color=#000000>makePayment</font>(<font color=#A000A0>double</font> payment) {	<font color=#0000FF>// make a payment</font>
+  balance -= payment;
+}
+  						<font color=#0000FF>// print card information</font>
+ostream& <font color=#A000A0>operator</font>&lt;&lt;(ostream& out, <font color=#A000A0>const</font> CreditCard& c) {
+  out &lt;&lt; <font color=#0000FF>"Number = "</font>        &lt;&lt; c.<font color=#000000>getNumber</font>()      &lt;&lt; <font color=#0000FF>"\n"</font>
+      &lt;&lt; <font color=#0000FF>"Name = "</font>          &lt;&lt; c.<font color=#000000>getName</font>()        &lt;&lt; <font color=#0000FF>"\n"</font>
+      &lt;&lt; <font color=#0000FF>"Balance = "</font>       &lt;&lt; c.<font color=#000000>getBalance</font>()     &lt;&lt; <font color=#0000FF>"\n"</font>
+      &lt;&lt; <font color=#0000FF>"Limit = "</font>         &lt;&lt; c.<font color=#000000>getLimit</font>()       &lt;&lt; <font color=#0000FF>"\n"</font>;
+  <font color=#00A000>return</font> out;
+}
+</dl>
+
+</body>
+</html>

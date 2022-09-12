@@ -1,0 +1,33 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Gettags</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Gettags</font></h2>
+</center><br><dl><dd><pre>
+
+  vector&lt;string&gt; <font color=#000000>getHtmlTags</font>() {		<font color=#0000FF>// store tags in a vector</font>
+    vector&lt;string&gt; tags;			<font color=#0000FF>// vector of html tags</font>
+    <font color=#00A000>while</font> (cin) {				<font color=#0000FF>// read until end of file</font>
+      string line;
+      <font color=#000000>getline</font>(cin, line);			<font color=#0000FF>// input a full line of text</font>
+      <font color=#A000A0>int</font> pos = 0;				<font color=#0000FF>// current scan position</font>
+      <font color=#A000A0>int</font> ts = line.<font color=#000000>find</font>(<font color=#0000FF>"&lt;"</font>, pos);		<font color=#0000FF>// possible tag start</font>
+      <font color=#00A000>while</font> (ts != string::npos) {		<font color=#0000FF>// repeat until end of string</font>
+        <font color=#A000A0>int</font> te = line.<font color=#000000>find</font>(<font color=#0000FF>"&gt;"</font>, ts+1);		<font color=#0000FF>// scan for tag end</font>
+        tags.<font color=#000000>push_back</font>(line.<font color=#000000>substr</font>(ts, te-ts+1)); <font color=#0000FF>// append tag to the vector</font>
+        pos = te + 1;				<font color=#0000FF>// advance our position</font>
+        ts = line.<font color=#000000>find</font>(<font color=#0000FF>"&lt;"</font>, pos);
+      }
+    }
+    <font color=#00A000>return</font> tags;				<font color=#0000FF>// return vector of tags </font>
+  }
+</dl>
+
+</body>
+</html>

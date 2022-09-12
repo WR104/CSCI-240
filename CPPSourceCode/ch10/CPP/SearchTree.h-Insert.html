@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Insert</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Insert</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// insert utility</font>
+  <font color=#A000A0>typename</font> SearchTree&lt;E&gt;::TPos SearchTree&lt;E&gt;::<font color=#000000>inserter</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& x) {
+    TPos v = <font color=#000000>finder</font>(k, <font color=#000000>root</font>());				<font color=#0000FF>// search from virtual root</font>
+    <font color=#00A000>while</font> (v.<font color=#000000>isInternal</font>())				<font color=#0000FF>// key already exists?</font>
+      v = <font color=#000000>finder</font>(k, v.<font color=#000000>right</font>());				<font color=#0000FF>// look further</font>
+    T.<font color=#000000>expandExternal</font>(v);				<font color=#0000FF>// add new internal node</font>
+    v-&gt;<font color=#000000>setKey</font>(k); v-&gt;<font color=#000000>setValue</font>(x);			<font color=#0000FF>// set entry</font>
+    n++;						<font color=#0000FF>// one more entry</font>
+    <font color=#00A000>return</font> v;						<font color=#0000FF>// return insert position</font>
+  }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// insert (k,x)</font>
+  <font color=#A000A0>typename</font> SearchTree&lt;E&gt;::Iterator SearchTree&lt;E&gt;::<font color=#000000>insert</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& x)
+    { TPos v = <font color=#000000>inserter</font>(k, x); <font color=#00A000>return</font> <font color=#000000>Iterator</font>(v); }
+</dl>
+
+</body>
+</html>

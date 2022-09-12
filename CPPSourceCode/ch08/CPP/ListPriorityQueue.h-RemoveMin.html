@@ -1,0 +1,24 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>RemoveMin</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: RemoveMin</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;			<font color=#0000FF>// minimum element</font>
+  <font color=#A000A0>const</font> E& ListPriorityQueue&lt;E,C&gt;::<font color=#000000>min</font>() <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> L.<font color=#000000>front</font>(); }				<font color=#0000FF>// minimum is at the front</font>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;			<font color=#0000FF>// remove minimum</font>
+  <font color=#A000A0>void</font> ListPriorityQueue&lt;E,C&gt;::<font color=#000000>removeMin</font>()	
+    { L.<font color=#000000>pop_front</font>(); }
+</dl>
+
+</body>
+</html>

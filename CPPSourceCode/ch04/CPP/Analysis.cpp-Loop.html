@@ -1,0 +1,24 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Loop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Loop</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>bool</font> <font color=#000000>isUniqueLoop</font>(<font color=#A000A0>const</font> vector&lt;<font color=#A000A0>int</font>&gt;& arr, <font color=#A000A0>int</font> start, <font color=#A000A0>int</font> end) {
+    <font color=#00A000>if</font> (start &gt;= end) <font color=#00A000>return</font> <font color=#A000A0>true</font>;
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = start; i &lt; end; i++) 
+      <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = i+1; j &lt;= end; j++) 
+	<font color=#00A000>if</font> (arr[i] == arr[j]) <font color=#00A000>return</font> <font color=#A000A0>false</font>;
+    <font color=#00A000>return</font> <font color=#A000A0>true</font>;
+  }
+</dl>
+
+</body>
+</html>

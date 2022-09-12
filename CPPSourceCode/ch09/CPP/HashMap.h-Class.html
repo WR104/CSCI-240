@@ -1,0 +1,43 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;
+  <font color=#A000A0>class</font> HashMap {
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public types</font>
+    <font color=#A000A0>typedef</font> Entry&lt;<font color=#A000A0>const</font> K,V&gt; Entry;			<font color=#0000FF>// a (key,value) pair</font>
+    <font color=#A000A0>class</font> Iterator;					<font color=#0000FF>// a iterator/position</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#000000>HashMap</font>(<font color=#A000A0>int</font> capacity = 100);			<font color=#0000FF>// constructor</font>
+    <font color=#A000A0>int</font> <font color=#000000>size</font>() <font color=#A000A0>const</font>;					<font color=#0000FF>// number of entries</font>
+    <font color=#A000A0>bool</font> <font color=#000000>empty</font>() <font color=#A000A0>const</font>;					<font color=#0000FF>// is the map empty?</font>
+    Iterator <font color=#000000>find</font>(<font color=#A000A0>const</font> K& k);				<font color=#0000FF>// find entry with key k</font>
+    Iterator <font color=#000000>put</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& v);		<font color=#0000FF>// insert/replace (k,v)</font>
+    <font color=#A000A0>void</font> <font color=#000000>erase</font>(<font color=#A000A0>const</font> K& k);				<font color=#0000FF>// remove entry with key k</font>
+    <font color=#A000A0>void</font> <font color=#000000>erase</font>(<font color=#A000A0>const</font> Iterator& p);			<font color=#0000FF>// erase entry at p</font>
+    Iterator <font color=#000000>begin</font>();					<font color=#0000FF>// iterator to first entry</font>
+    Iterator <font color=#000000>end</font>();					<font color=#0000FF>// iterator to end entry</font>
+  <font color=#A000A0>protected</font>:						<font color=#0000FF>// protected types</font>
+    <font color=#A000A0>typedef</font> std::list&lt;Entry&gt; Bucket;			<font color=#0000FF>// a bucket of entries</font>
+    <font color=#A000A0>typedef</font> std::vector&lt;Bucket&gt; BktArray;		<font color=#0000FF>// a bucket array</font>
+    <font color=#0000FF>// ...insert HashMap utilities here</font>
+  <font color=#A000A0>private</font>:
+    <font color=#A000A0>int</font> n;						<font color=#0000FF>// number of entries</font>
+    H hash;						<font color=#0000FF>// the hash comparator</font>
+    BktArray B;						<font color=#0000FF>// bucket array</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public types</font>
+    <font color=#0000FF>// ...insert Iterator class declaration here</font>
+  };
+</dl>
+
+</body>
+</html>

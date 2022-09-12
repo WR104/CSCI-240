@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Remove</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Remove</font></h2>
+</center><br><dl><dd><pre>
+
+  LinkedBinaryTree::Position				<font color=#0000FF>// remove p and parent</font>
+  LinkedBinaryTree::<font color=#000000>removeAboveExternal</font>(<font color=#A000A0>const</font> Position& p) {
+    Node* w = p.v;  Node* v = w-&gt;par;			<font color=#0000FF>// get p's node and parent</font>
+    Node* sib = (w == v-&gt;left ?  v-&gt;right : v-&gt;left);
+    <font color=#00A000>if</font> (v == _root) {					<font color=#0000FF>// child of root?</font>
+      _root = sib;					<font color=#0000FF>// ...make sibling root</font>
+      sib-&gt;par = NULL;
+    }
+    <font color=#00A000>else</font> {
+      Node* gpar = v-&gt;par;				<font color=#0000FF>// w's grandparent</font>
+      <font color=#00A000>if</font> (v == gpar-&gt;left) gpar-&gt;left = sib; 		<font color=#0000FF>// replace parent by sib</font>
+      <font color=#00A000>else</font> gpar-&gt;right = sib;
+      sib-&gt;par = gpar;
+    }
+    <font color=#A000A0>delete</font> w; <font color=#A000A0>delete</font> v;					<font color=#0000FF>// delete removed nodes</font>
+    n -= 2;						<font color=#0000FF>// two fewer nodes</font>
+    <font color=#00A000>return</font> <font color=#000000>Position</font>(sib);
+  }
+</dl>
+
+</body>
+</html>

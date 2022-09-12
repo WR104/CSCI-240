@@ -1,0 +1,52 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>TTT2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: TTT2</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>int</font> <font color=#000000>getWinner</font>() {				<font color=#0000FF>// who wins? (EMPTY means tie)</font>
+    <font color=#00A000>if</font> (<font color=#000000>isWin</font>(X)) <font color=#00A000>return</font> X;
+    <font color=#00A000>else</font> <font color=#00A000>if</font> (<font color=#000000>isWin</font>(O)) <font color=#00A000>return</font> O;
+    <font color=#00A000>else</font> <font color=#00A000>return</font> EMPTY;
+  }
+
+  <font color=#A000A0>void</font> <font color=#000000>printBoard</font>() {				<font color=#0000FF>// print the board</font>
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; 3; i++) {
+      <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = 0; j &lt; 3; j++) {
+	<font color=#00A000>switch</font> (board[i][j]) {
+	<font color=#00A000>case</font> X:		cout &lt;&lt; <font color=#0000FF>"X"</font>; <font color=#00A000>break</font>;
+	<font color=#00A000>case</font> O:		cout &lt;&lt; <font color=#0000FF>"O"</font>; <font color=#00A000>break</font>;
+	<font color=#00A000>case</font> EMPTY:	cout &lt;&lt; <font color=#0000FF>" "</font>; <font color=#00A000>break</font>;
+	}
+	<font color=#00A000>if</font> (j &lt; 2) cout &lt;&lt; <font color=#0000FF>"|"</font>;			<font color=#0000FF>// column boundary</font>
+      }
+      <font color=#00A000>if</font> (i &lt; 2) cout &lt;&lt; <font color=#0000FF>"\n-+-+-\n"</font>;		<font color=#0000FF>// row boundary</font>
+    }
+  }
+
+  <font color=#A000A0>int</font> <font color=#000000>main</font>() {					<font color=#0000FF>// main program</font>
+    <font color=#000000>clearBoard</font>();				<font color=#0000FF>// clear the board</font>
+    <font color=#000000>putMark</font>(0,0);	<font color=#000000>putMark</font>(1,1);		<font color=#0000FF>// add the marks</font>
+    <font color=#000000>putMark</font>(0,1);	<font color=#000000>putMark</font>(0,2);
+    <font color=#000000>putMark</font>(2,0);	<font color=#000000>putMark</font>(1,2);
+    <font color=#000000>putMark</font>(2,2);	<font color=#000000>putMark</font>(2,1);
+    <font color=#000000>putMark</font>(1,0);
+    <font color=#000000>printBoard</font>();				<font color=#0000FF>// print the final board</font>
+    <font color=#A000A0>int</font> winner = <font color=#000000>getWinner</font>();
+    <font color=#00A000>if</font> (winner != EMPTY)			<font color=#0000FF>// print the winner</font>
+      cout &lt;&lt; <font color=#0000FF>"  "</font> &lt;&lt; (winner == X ? 'X' : '0') &lt;&lt; <font color=#0000FF>" wins"</font> &lt;&lt; endl;
+    <font color=#00A000>else</font>
+      cout &lt;&lt; <font color=#0000FF>"  Tie"</font> &lt;&lt; endl;
+    <font color=#00A000>return</font> EXIT_SUCCESS;
+  }
+</dl>
+
+</body>
+</html>

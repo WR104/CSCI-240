@@ -1,0 +1,26 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>InsertPosition</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: InsertPosition</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;			<font color=#0000FF>// insert element</font>
+  <font color=#A000A0>typename</font> AdaptPriorityQueue&lt;E,C&gt;::Position
+  AdaptPriorityQueue&lt;E,C&gt;::<font color=#000000>insert</font>(<font color=#A000A0>const</font> E& e) {
+    <font color=#A000A0>typename</font> ElementList::iterator p = L.<font color=#000000>begin</font>();
+    <font color=#00A000>while</font> (p != L.<font color=#000000>end</font>() && !<font color=#000000>isLess</font>(e, *p)) ++p;		<font color=#0000FF>// find larger element</font>
+    L.<font color=#000000>insert</font>(p, e);					<font color=#0000FF>// insert before p</font>
+    Position pos;  pos.q = --p;
+    <font color=#00A000>return</font> pos;						<font color=#0000FF>// inserted position</font>
+  }
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Depth</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Depth</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>int</font> <font color=#000000>depth</font>(<font color=#A000A0>const</font> Tree& T, <font color=#A000A0>const</font> Position& p) {
+    <font color=#00A000>if</font> (p.<font color=#000000>isRoot</font>())
+      <font color=#00A000>return</font> 0;					<font color=#0000FF>// root has depth 0</font>
+    <font color=#00A000>else</font>
+      <font color=#00A000>return</font> 1 + <font color=#000000>depth</font>(T, p.<font color=#000000>parent</font>());		<font color=#0000FF>// 1 + (depth of parent)</font>
+  }
+</dl>
+
+</body>
+</html>

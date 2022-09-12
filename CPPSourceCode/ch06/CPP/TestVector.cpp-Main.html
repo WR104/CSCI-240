@@ -1,0 +1,46 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Main</font></h2>
+</center><br><dl><dd><pre>
+
+  #include &lt;cstdlib&gt;					<font color=#0000FF>// provides EXIT_SUCCESS</font>
+  #include &lt;iostream&gt;					<font color=#0000FF>// I/O definitions</font>
+  #include &lt;vector&gt;					<font color=#0000FF>// provides vector</font>
+  #include &lt;algorithm&gt;					<font color=#0000FF>// for sort, random_shuffle</font>
+
+  <font color=#A000A0>using</font> <font color=#A000A0>namespace</font> std;					<font color=#0000FF>// make std:: accessible</font>
+
+  <font color=#A000A0>int</font> <font color=#000000>main </font>() {
+    <font color=#A000A0>int</font> a[] = {17, 12, 33, 15, 62, 45};
+    vector&lt;<font color=#A000A0>int</font>&gt; <font color=#000000>v</font>(a, a + 6);				<font color=#0000FF>// v: 17 12 33 15 62 45</font>
+    cout &lt;&lt; v.<font color=#000000>size</font>() &lt;&lt; endl;				<font color=#0000FF>// outputs: 6</font>
+    v.<font color=#000000>pop_back</font>();					<font color=#0000FF>// v: 17 12 33 15 62</font>
+    cout &lt;&lt; v.<font color=#000000>size</font>() &lt;&lt; endl;				<font color=#0000FF>// outputs: 5</font>
+    v.<font color=#000000>push_back</font>(19);					<font color=#0000FF>// v: 17 12 33 15 62 19</font>
+    cout &lt;&lt; v.<font color=#000000>front</font>() &lt;&lt; <font color=#0000FF>" "</font> &lt;&lt; v.<font color=#000000>back</font>() &lt;&lt; endl;	<font color=#0000FF>// outputs: 17 19</font>
+    <font color=#000000>sort</font>(v.<font color=#000000>begin</font>(), v.<font color=#000000>begin</font>() + 4); 			<font color=#0000FF>// v: (12 15 17 33) 62 19</font>
+    v.<font color=#000000>erase</font>(v.<font color=#000000>end</font>() - 4, v.<font color=#000000>end</font>() - 2);			<font color=#0000FF>// v: 12 15 62 19</font>
+    cout &lt;&lt; v.<font color=#000000>size</font>() &lt;&lt; endl;				<font color=#0000FF>// outputs: 4</font>
+  
+    <font color=#A000A0>char</font> b[] = {'b', 'r', 'a', 'v', 'o'};
+    vector&lt;<font color=#A000A0>char</font>&gt; <font color=#000000>w</font>(b, b + 5);				<font color=#0000FF>// w: b r a v o</font>
+    <font color=#000000>random_shuffle</font>(w.<font color=#000000>begin</font>(), w.<font color=#000000>end</font>());			<font color=#0000FF>// w: o v r a b</font>
+    w.<font color=#000000>insert</font>(w.<font color=#000000>begin</font>(), 's');				<font color=#0000FF>// w: s o v r a b</font>
+  
+    <font color=#00A000>for</font> (vector&lt;<font color=#A000A0>char</font>&gt;::iterator p = w.<font color=#000000>begin</font>(); p != w.<font color=#000000>end</font>(); ++p)
+      cout &lt;&lt; *p &lt;&lt; <font color=#0000FF>" "</font>;				<font color=#0000FF>// outputs: s o v r a b</font>
+    cout &lt;&lt; endl;
+    <font color=#00A000>return</font> EXIT_SUCCESS;
+  }
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>typedef</font> <font color=#A000A0>int</font> Elem;					<font color=#0000FF>// base element type</font>
+  <font color=#A000A0>class</font> LinkedBinaryTree {
+  <font color=#A000A0>protected</font>:
+    <font color=#0000FF>// insert Node declaration here...</font>
+  <font color=#A000A0>public</font>:
+    <font color=#0000FF>// insert Position declaration here...</font>
+  <font color=#A000A0>public</font>:
+    <font color=#000000>LinkedBinaryTree</font>();					<font color=#0000FF>// constructor</font>
+    <font color=#A000A0>int</font> <font color=#000000>size</font>() <font color=#A000A0>const</font>;					<font color=#0000FF>// number of nodes</font>
+    <font color=#A000A0>bool</font> <font color=#000000>empty</font>() <font color=#A000A0>const</font>;					<font color=#0000FF>// is tree empty?</font>
+    Position <font color=#000000>root</font>() <font color=#A000A0>const</font>;				<font color=#0000FF>// get the root</font>
+    PositionList <font color=#000000>positions</font>() <font color=#A000A0>const</font>;  			<font color=#0000FF>// list of nodes</font>
+    <font color=#A000A0>void</font> <font color=#000000>addRoot</font>();					<font color=#0000FF>// add root to empty tree</font>
+    <font color=#A000A0>void</font> <font color=#000000>expandExternal</font>(<font color=#A000A0>const</font> Position& p);		<font color=#0000FF>// expand external node</font>
+    Position <font color=#000000>removeAboveExternal</font>(<font color=#A000A0>const</font> Position& p);	<font color=#0000FF>// remove p and parent</font>
+    <font color=#0000FF>// housekeeping functions omitted...</font>
+  <font color=#A000A0>protected</font>: 						<font color=#0000FF>// local utilities</font>
+    <font color=#A000A0>void</font> <font color=#000000>preorder</font>(Node* v, PositionList& pl) <font color=#A000A0>const</font>;	<font color=#0000FF>// preorder utility</font>
+  <font color=#A000A0>private</font>:
+    Node* _root;					<font color=#0000FF>// pointer to the root</font>
+    <font color=#A000A0>int</font> n;						<font color=#0000FF>// number of nodes</font>
+  };
+</dl>
+
+</body>
+</html>

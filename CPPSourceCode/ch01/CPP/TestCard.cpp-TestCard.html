@@ -1,0 +1,51 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>TestCard</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: TestCard</font></h2>
+</center><br><dl><dd><pre>
+
+#include &lt;vector&gt;				<font color=#0000FF>// provides STL vector</font>
+#include <font color=#0000FF>"CreditCard.h"</font>				<font color=#0000FF>// provides CreditCard, cout, string</font>
+
+<font color=#A000A0>using</font> <font color=#A000A0>namespace</font> std;				<font color=#0000FF>// make std accessible</font>
+
+<font color=#A000A0>void</font> <font color=#000000>testCard</font>() {				<font color=#0000FF>// CreditCard test function</font>
+  vector&lt;CreditCard*&gt; <font color=#000000>wallet</font>(10);		<font color=#0000FF>// vector of 10 CreditCard pointers</font>
+  						<font color=#0000FF>// allocate 3 new cards</font>
+  wallet[0] = <font color=#A000A0>new</font> <font color=#000000>CreditCard</font>(<font color=#0000FF>"5391 0375 9387 5309"</font>, <font color=#0000FF>"John Bowman"</font>, 2500);
+  wallet[1] = <font color=#A000A0>new</font> <font color=#000000>CreditCard</font>(<font color=#0000FF>"3485 0399 3395 1954"</font>, <font color=#0000FF>"John Bowman"</font>, 3500);
+  wallet[2] = <font color=#A000A0>new</font> <font color=#000000>CreditCard</font>(<font color=#0000FF>"6011 4902 3294 2994"</font>, <font color=#0000FF>"John Bowman"</font>, 5000);
+
+  <font color=#00A000>for</font> (<font color=#A000A0>int</font> j=1; j &lt;= 16; j++) {			<font color=#0000FF>// make some charges</font>
+    wallet[0]-&gt;<font color=#000000>chargeIt</font>(<font color=#A000A0>double</font>(j));		<font color=#0000FF>// explicitly cast to double</font>
+    wallet[1]-&gt;<font color=#000000>chargeIt</font>(2 * j);			<font color=#0000FF>// implicitly cast to double</font>
+    wallet[2]-&gt;<font color=#000000>chargeIt</font>(<font color=#A000A0>double</font>(3 * j));
+  }
+
+  cout &lt;&lt; <font color=#0000FF>"Card payments:\n"</font>;
+  <font color=#00A000>for</font> (<font color=#A000A0>int</font> i=0; i &lt; 3; i++) {			<font color=#0000FF>// make more charges</font>
+    cout &lt;&lt; *wallet[i];
+    <font color=#00A000>while</font> (wallet[i]-&gt;<font color=#000000>getBalance</font>() &gt; 100.0) {
+      wallet[i]-&gt;<font color=#000000>makePayment</font>(100.0);
+      cout &lt;&lt; <font color=#0000FF>"New balance = "</font> &lt;&lt; wallet[i]-&gt;<font color=#000000>getBalance</font>() &lt;&lt; <font color=#0000FF>"\n"</font>;
+    }
+    cout &lt;&lt; <font color=#0000FF>"\n"</font>;
+    <font color=#A000A0>delete</font> wallet[i];				<font color=#0000FF>// deallocate storage</font>
+  }
+}
+
+<font color=#A000A0>int</font> <font color=#000000>main</font>() {					<font color=#0000FF>// main function</font>
+  <font color=#000000>testCard</font>();
+  <font color=#00A000>return</font> EXIT_SUCCESS;				<font color=#0000FF>// successful execution</font>
+}
+</dl>
+
+</body>
+</html>

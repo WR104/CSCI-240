@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Positions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Positions</font></h2>
+</center><br><dl><dd><pre>
+
+							<font color=#0000FF>// list of all nodes</font>
+LinkedBinaryTree::PositionList LinkedBinaryTree::<font color=#000000>positions</font>() <font color=#A000A0>const</font> {
+  PositionList pl;
+  <font color=#000000>preorder</font>(_root, pl);					<font color=#0000FF>// preorder traversal</font>
+  <font color=#00A000>return</font> <font color=#000000>PositionList</font>(pl);				<font color=#0000FF>// return resulting list</font>
+}
+							<font color=#0000FF>// preorder traversal</font>
+<font color=#A000A0>void</font> LinkedBinaryTree::<font color=#000000>preorder</font>(Node* v, PositionList& pl) <font color=#A000A0>const</font> {
+  pl.<font color=#000000>push_back</font>(<font color=#000000>Position</font>(v));				<font color=#0000FF>// add this node</font>
+  <font color=#00A000>if</font> (v-&gt;left != NULL)					<font color=#0000FF>// traverse left subtree</font>
+    <font color=#000000>preorder</font>(v-&gt;left, pl);
+  <font color=#00A000>if</font> (v-&gt;right != NULL)					<font color=#0000FF>// traverse right subtree</font>
+    <font color=#000000>preorder</font>(v-&gt;right, pl);
+}
+</dl>
+
+</body>
+</html>

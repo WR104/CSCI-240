@@ -1,0 +1,48 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>TTT1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: TTT1</font></h2>
+</center><br><dl><dd><pre>
+
+  #include &lt;cstdlib&gt;				<font color=#0000FF>// system definitions</font>
+  #include &lt;iostream&gt;				<font color=#0000FF>// I/O definitions</font>
+  <font color=#A000A0>using</font> <font color=#A000A0>namespace</font> std;				<font color=#0000FF>// make std:: accessible</font>
+
+  <font color=#A000A0>const</font> <font color=#A000A0>int</font> X = 1, O = -1, EMPTY = 0;		<font color=#0000FF>// possible marks</font>
+  <font color=#A000A0>int</font> board[3][3];				<font color=#0000FF>// playing board</font>
+  <font color=#A000A0>int</font> currentPlayer;				<font color=#0000FF>// current player (X or O)</font>
+
+  <font color=#A000A0>void</font> <font color=#000000>clearBoard</font>() {				<font color=#0000FF>// clear the board</font>
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; 3; i++)
+      <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = 0; j &lt; 3; j++)
+        board[i][j] = EMPTY;			<font color=#0000FF>// every cell is empty</font>
+    currentPlayer = X;				<font color=#0000FF>// player X starts</font>
+  }
+
+  <font color=#A000A0>void</font> <font color=#000000>putMark</font>(<font color=#A000A0>int</font> i, <font color=#A000A0>int</font> j) {			<font color=#0000FF>// mark row i column j</font>
+    board[i][j] = currentPlayer;		<font color=#0000FF>// mark with current player</font>
+    currentPlayer = -currentPlayer;		<font color=#0000FF>// switch players</font>
+  }
+
+  <font color=#A000A0>bool</font> <font color=#000000>isWin</font>(<font color=#A000A0>int</font> mark) {			<font color=#0000FF>// is mark the winner?</font>
+    <font color=#A000A0>int</font> win = 3*mark;				<font color=#0000FF>// +3 for X and -3 for O</font>
+    <font color=#00A000>return</font> ((board[0][0] + board[0][1] + board[0][2] == win)	    <font color=#0000FF>// row 0</font>
+	 || (board[1][0] + board[1][1] + board[1][2] == win)	    <font color=#0000FF>// row 1</font>
+	 || (board[2][0] + board[2][1] + board[2][2] == win)	    <font color=#0000FF>// row 2</font>
+	 || (board[0][0] + board[1][0] + board[2][0] == win)	    <font color=#0000FF>// column 0</font>
+	 || (board[0][1] + board[1][1] + board[2][1] == win)	    <font color=#0000FF>// column 1</font>
+	 || (board[0][2] + board[1][2] + board[2][2] == win)	    <font color=#0000FF>// column 2</font>
+	 || (board[0][0] + board[1][1] + board[2][2] == win)	    <font color=#0000FF>// diagonal</font>
+	 || (board[2][0] + board[1][1] + board[0][2] == win));	    <font color=#0000FF>// diagonal</font>
+  }
+</dl>
+
+</body>
+</html>

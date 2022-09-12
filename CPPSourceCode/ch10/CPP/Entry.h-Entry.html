@@ -1,0 +1,33 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Entry</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Entry</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V&gt;
+  <font color=#A000A0>class</font> Entry {						<font color=#0000FF>// a (key, value) pair</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public types</font>
+    <font color=#A000A0>typedef</font> K Key;					<font color=#0000FF>// key type</font>
+    <font color=#A000A0>typedef</font> V Value;					<font color=#0000FF>// value type</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#000000>Entry</font>(<font color=#A000A0>const</font> K& k = <font color=#000000>K</font>(), <font color=#A000A0>const</font> V& v = <font color=#000000>V</font>())		<font color=#0000FF>// constructor</font>
+      : <font color=#000000>_key</font>(k), <font color=#000000>_value</font>(v) { }	
+    <font color=#A000A0>const</font> K& <font color=#000000>key</font>() <font color=#A000A0>const</font> { <font color=#00A000>return</font> _key; }		<font color=#0000FF>// get key (read only)</font>
+    <font color=#A000A0>const</font> V& <font color=#000000>value</font>() <font color=#A000A0>const</font> { <font color=#00A000>return</font> _value; }		<font color=#0000FF>// get value (read only)</font>
+    <font color=#A000A0>void</font> <font color=#000000>setKey</font>(<font color=#A000A0>const</font> K& k) { _key = k; }		<font color=#0000FF>// set key</font>
+    <font color=#A000A0>void</font> <font color=#000000>setValue</font>(<font color=#A000A0>const</font> V& v) { _value = v; }		<font color=#0000FF>// set value</font>
+  <font color=#A000A0>private</font>:						<font color=#0000FF>// private data</font>
+    K _key;						<font color=#0000FF>// key</font>
+    V _value;						<font color=#0000FF>// value</font>
+  };
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Initialize</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Initialize</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;					<font color=#0000FF>// constructor</font>
+  DFS&lt;G&gt;::<font color=#000000>DFS</font>(<font color=#A000A0>const</font> G& g)
+    : <font color=#000000>graph</font>(g), <font color=#000000>yes</font>(<font color=#A000A0>new</font> Object), <font color=#000000>no</font>(<font color=#A000A0>new</font> Object) {}
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;					<font color=#0000FF>// initialize a new DFS</font>
+  <font color=#A000A0>void</font> DFS&lt;G&gt;::<font color=#000000>initialize</font>() {
+    VertexList verts = graph.<font color=#000000>vertices</font>();
+    <font color=#00A000>for</font> (VertexItor pv = verts.<font color=#000000>begin</font>(); pv != verts.<font color=#000000>end</font>(); ++pv)
+      <font color=#000000>unvisit</font>(*pv);					<font color=#0000FF>// mark vertices unvisited</font>
+    EdgeList edges = graph.<font color=#000000>edges</font>();
+    <font color=#00A000>for</font> (EdgeItor pe = edges.<font color=#000000>begin</font>(); pe != edges.<font color=#000000>end</font>(); ++pe)
+      <font color=#000000>unvisit</font>(*pe);					<font color=#0000FF>// mark edges unvisited</font>
+  }
+</dl>
+
+</body>
+</html>

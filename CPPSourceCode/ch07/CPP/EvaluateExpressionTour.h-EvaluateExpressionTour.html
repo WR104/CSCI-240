@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>EvaluateExpressionTour</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: EvaluateExpressionTour</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> R&gt;
+  <font color=#A000A0>class</font> EvaluateExpressionTour : <font color=#A000A0>public</font> EulerTour&lt;E, R&gt; {
+  <font color=#A000A0>protected</font>:					<font color=#0000FF>// shortcut type names</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> EulerTour&lt;E, R&gt;::BinaryTree BinaryTree;
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> EulerTour&lt;E, R&gt;::Position Position;
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> EulerTour&lt;E, R&gt;::Result Result;
+  <font color=#A000A0>public</font>:
+    <font color=#A000A0>void</font> <font color=#000000>execute</font>(<font color=#A000A0>const</font> BinaryTree& T) {		<font color=#0000FF>// execute the tour</font>
+      <font color=#000000>initialize</font>(T);
+      std::cout &lt;&lt; <font color=#0000FF>"The value is: "</font> &lt;&lt; <font color=#000000>eulerTour</font>(T.<font color=#000000>root</font>()) &lt;&lt; <font color=#0000FF>"\n"</font>;
+    }
+  <font color=#A000A0>protected</font>:					<font color=#0000FF>// leaf: return value</font>
+    <font color=#A000A0>virtual</font> <font color=#A000A0>void</font> <font color=#000000>visitExternal</font>(<font color=#A000A0>const</font> Position& p, Result& r) <font color=#A000A0>const</font>
+      { r.finalResult = (*p).<font color=#000000>value</font>(); }
+  						<font color=#0000FF>// internal: do operation</font>
+    <font color=#A000A0>virtual</font> <font color=#A000A0>void</font> <font color=#000000>visitRight</font>(<font color=#A000A0>const</font> Position& p, Result& r) <font color=#A000A0>const</font>
+      { r.finalResult = (*p).<font color=#000000>operation</font>(r.leftResult, r.rightResult); }
+  };
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>CreditCardH</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: CreditCardH</font></h2>
+</center><br><dl><dd><pre>
+
+#ifndef CREDIT_CARD_H                           <font color=#0000FF>// avoid repeated expansion</font>
+#define CREDIT_CARD_H
+
+#include &lt;string&gt;				<font color=#0000FF>// provides string</font>
+#include &lt;iostream&gt;				<font color=#0000FF>// provides ostream</font>
+
+<font color=#A000A0>class</font> CreditCard {
+<font color=#A000A0>public</font>:
+  <font color=#000000>CreditCard</font>(<font color=#A000A0>const</font> std::string& no,		<font color=#0000FF>// constructor</font>
+  	<font color=#A000A0>const</font> std::string& nm, <font color=#A000A0>int</font> lim, <font color=#A000A0>double</font> bal=0);
+  						<font color=#0000FF>// accessor functions</font>
+  std::string   <font color=#000000>getNumber</font>() <font color=#A000A0>const</font>	{ <font color=#00A000>return</font> number; }
+  std::string   <font color=#000000>getName</font>() <font color=#A000A0>const</font>		{ <font color=#00A000>return</font> name; }
+  <font color=#A000A0>double</font>   	<font color=#000000>getBalance</font>() <font color=#A000A0>const</font>	{ <font color=#00A000>return</font> balance; }
+  <font color=#A000A0>int</font>      	<font color=#000000>getLimit</font>() <font color=#A000A0>const</font>	{ <font color=#00A000>return</font> limit; }
+
+  <font color=#A000A0>bool</font> <font color=#000000>chargeIt</font>(<font color=#A000A0>double</font> price); 			<font color=#0000FF>// make a charge </font>
+  <font color=#A000A0>void</font> <font color=#000000>makePayment</font>(<font color=#A000A0>double</font> payment);		<font color=#0000FF>// make a payment</font>
+<font color=#A000A0>private</font>:                                	<font color=#0000FF>// private member data</font>
+  std::string   number;				<font color=#0000FF>// credit card number</font>
+  std::string   name;				<font color=#0000FF>// card owner's name</font>
+  <font color=#A000A0>int</font>       	limit;				<font color=#0000FF>// credit limit</font>
+  <font color=#A000A0>double</font>    	balance;			<font color=#0000FF>// credit card balance</font>
+};
+  						<font color=#0000FF>// print card information</font>
+std::ostream& <font color=#A000A0>operator</font>&lt;&lt;(std::ostream& out, <font color=#A000A0>const</font> CreditCard& c);
+#endif
+</dl>
+
+</body>
+</html>

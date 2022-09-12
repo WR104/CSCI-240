@@ -1,0 +1,29 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>IteratorClass</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: IteratorClass</font></h2>
+</center><br><dl><dd><pre>
+
+    <font color=#A000A0>class</font> Iterator {	                      		<font color=#0000FF>// an iterator/position</font>
+    <font color=#A000A0>private</font>:
+      TPos v;						<font color=#0000FF>// which entry</font>
+    <font color=#A000A0>public</font>:
+      <font color=#000000>Iterator</font>(<font color=#A000A0>const</font> TPos& vv) : <font color=#000000>v</font>(vv) { }		<font color=#0000FF>// constructor</font>
+      <font color=#A000A0>const</font> E& <font color=#A000A0>operator</font>*() <font color=#A000A0>const</font> { <font color=#00A000>return</font> *v; }	<font color=#0000FF>// get entry (read only)</font>
+      E& <font color=#A000A0>operator</font>*() { <font color=#00A000>return</font> *v; }			<font color=#0000FF>// get entry (read/write)</font>
+      <font color=#A000A0>bool</font> <font color=#A000A0>operator</font>==(<font color=#A000A0>const</font> Iterator& p) <font color=#A000A0>const</font>		<font color=#0000FF>// are iterators equal?</font>
+        { <font color=#00A000>return</font> v == p.v; }
+      Iterator& <font color=#A000A0>operator</font>++();				<font color=#0000FF>// inorder successor</font>
+      <font color=#A000A0>friend</font> <font color=#A000A0>class</font> SearchTree;				<font color=#0000FF>// give search tree access</font>
+    };
+</dl>
+
+</body>
+</html>

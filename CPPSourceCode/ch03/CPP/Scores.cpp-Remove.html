@@ -1,0 +1,26 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Remove</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Remove</font></h2>
+</center><br><dl><dd><pre>
+
+  GameEntry Scores::<font color=#000000>remove</font>(<font color=#A000A0>int</font> i) <font color=#00A000>throw</font>(IndexOutOfBounds) {
+    <font color=#00A000>if</font> ((i &lt; 0) || (i &gt;= numEntries))		<font color=#0000FF>// invalid index</font>
+      <font color=#00A000>throw</font> <font color=#000000>IndexOutOfBounds</font>(<font color=#0000FF>"Invalid index"</font>);
+    GameEntry e = entries[i];			<font color=#0000FF>// save the removed object </font>
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = i+1; j &lt; numEntries; j++)
+      entries[j-1] = entries[j];		<font color=#0000FF>// shift entries left</font>
+    numEntries--;				<font color=#0000FF>// one fewer entry</font>
+    <font color=#00A000>return</font> e;					<font color=#0000FF>// return the removed object</font>
+  }
+</dl>
+
+</body>
+</html>

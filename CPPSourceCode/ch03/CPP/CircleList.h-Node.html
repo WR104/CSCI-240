@@ -1,0 +1,25 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Node</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Node</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>typedef</font> string Elem;				<font color=#0000FF>// element type</font>
+  <font color=#A000A0>class</font> CNode {					<font color=#0000FF>// circularly linked list node</font>
+  <font color=#A000A0>private</font>:
+    Elem elem;					<font color=#0000FF>// linked list element value</font>
+    CNode* next;				<font color=#0000FF>// next item in the list</font>
+
+    <font color=#A000A0>friend</font> <font color=#A000A0>class</font> CircleList;			<font color=#0000FF>// provide CircleList access</font>
+  };
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Construct</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Construct</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt; ArrayStack&lt;E&gt;::<font color=#000000>ArrayStack</font>(<font color=#A000A0>int</font> cap)
+    : <font color=#000000>S</font>(<font color=#A000A0>new</font> E[cap]), <font color=#000000>capacity</font>(cap), <font color=#000000>t</font>(-1) { }	<font color=#0000FF>// constructor from capacity</font>
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt; <font color=#A000A0>int</font> ArrayStack&lt;E&gt;::<font color=#000000>size</font>() <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> (t + 1); }				<font color=#0000FF>// number of items in the stack</font>
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt; <font color=#A000A0>bool</font> ArrayStack&lt;E&gt;::<font color=#000000>empty</font>() <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> (t &lt; 0); }				<font color=#0000FF>// is the stack empty?</font>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;				<font color=#0000FF>// return top of stack</font>
+  <font color=#A000A0>const</font> E& ArrayStack&lt;E&gt;::<font color=#000000>top</font>() <font color=#A000A0>const</font> <font color=#00A000>throw</font>(StackEmpty) {		
+    <font color=#00A000>if</font> (<font color=#000000>empty</font>()) <font color=#00A000>throw</font> <font color=#000000>StackEmpty</font>(<font color=#0000FF>"Top of empty stack"</font>);
+    <font color=#00A000>return</font> S[t];
+  }
+</dl>
+
+</body>
+</html>

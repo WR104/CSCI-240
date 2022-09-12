@@ -1,0 +1,29 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>IteratorIncrement</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: IteratorIncrement</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// advance to next entry</font>
+  <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Iterator& HashMap&lt;K,V,H&gt;::Iterator::<font color=#A000A0>operator</font>++() {
+    ++ent;						<font color=#0000FF>// next entry in bucket</font>
+    <font color=#00A000>if</font> (<font color=#000000>endOfBkt</font>(*<font color=#A000A0>this</font>)) {				<font color=#0000FF>// at end of bucket?</font>
+      ++bkt;						<font color=#0000FF>// go to next bucket</font>
+      <font color=#00A000>while</font> (bkt != ba-&gt;<font color=#000000>end</font>() && bkt-&gt;<font color=#000000>empty</font>())		<font color=#0000FF>// find nonempty bucket</font>
+        ++bkt;
+      <font color=#00A000>if</font> (bkt == ba-&gt;<font color=#000000>end</font>()) <font color=#00A000>return</font> *<font color=#A000A0>this</font>;		<font color=#0000FF>// end of bucket array?</font>
+      ent = bkt-&gt;<font color=#000000>begin</font>();				<font color=#0000FF>// first nonempty entry</font>
+    }
+    <font color=#00A000>return</font> *<font color=#A000A0>this</font>;					<font color=#0000FF>// return self</font>
+  }
+</dl>
+
+</body>
+</html>

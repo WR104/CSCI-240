@@ -1,0 +1,34 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Erase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Erase</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// remove utility</font>
+  <font color=#A000A0>void</font> HashMap&lt;K,V,H&gt;::<font color=#000000>eraser</font>(<font color=#A000A0>const</font> Iterator& p) {
+    p.bkt-&gt;<font color=#000000>erase</font>(p.ent);				<font color=#0000FF>// remove entry from bucket</font>
+    n--;						<font color=#0000FF>// one fewer entry</font>
+  }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// remove entry at p</font>
+  <font color=#A000A0>void</font> HashMap&lt;K,V,H&gt;::<font color=#000000>erase</font>(<font color=#A000A0>const</font> Iterator& p)
+    { <font color=#000000>eraser</font>(p); }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// remove entry with key k</font>
+  <font color=#A000A0>void</font> HashMap&lt;K,V,H&gt;::<font color=#000000>erase</font>(<font color=#A000A0>const</font> K& k) {				
+    Iterator p = <font color=#000000>finder</font>(k);				<font color=#0000FF>// find k</font>
+    <font color=#00A000>if</font> (<font color=#000000>endOfBkt</font>(p))					<font color=#0000FF>// not found?</font>
+      <font color=#00A000>throw</font> <font color=#000000>NonexistentElement</font>(<font color=#0000FF>"Erase of nonexistent"</font>);	<font color=#0000FF>// ...error</font>
+    <font color=#000000>eraser</font>(p);						<font color=#0000FF>// remove it</font>
+  }
+</dl>
+
+</body>
+</html>

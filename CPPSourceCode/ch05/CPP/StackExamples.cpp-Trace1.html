@@ -1,0 +1,24 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Trace1</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Trace1</font></h2>
+</center><br><dl><dd><pre>
+
+  ArrayStack&lt;<font color=#A000A0>int</font>&gt; A;				<font color=#0000FF>// A = [], size = 0</font>
+  A.<font color=#000000>push</font>(7);					<font color=#0000FF>// A = [7*], size = 1</font>
+  A.<font color=#000000>push</font>(13);					<font color=#0000FF>// A = [7, 13*], size = 2</font>
+  cout &lt;&lt; A.<font color=#000000>top</font>() &lt;&lt; endl;  A.<font color=#000000>pop</font>();		<font color=#0000FF>// A = [7*], outputs: 13</font>
+  A.<font color=#000000>push</font>(9);					<font color=#0000FF>// A = [7, 9*], size = 2</font>
+  cout &lt;&lt; A.<font color=#000000>top</font>() &lt;&lt; endl;			<font color=#0000FF>// A = [7, 9*], outputs: 9</font>
+  cout &lt;&lt; A.<font color=#000000>top</font>() &lt;&lt; endl;  A.<font color=#000000>pop</font>();		<font color=#0000FF>// A = [7*], outputs: 9</font>
+</dl>
+
+</body>
+</html>

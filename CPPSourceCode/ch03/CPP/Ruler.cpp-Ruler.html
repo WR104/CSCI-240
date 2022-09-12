@@ -1,0 +1,38 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Ruler</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Ruler</font></h2>
+</center><br><dl><dd><pre>
+
+						<font color=#0000FF>// one tick with optional label</font>
+  <font color=#A000A0>void</font> <font color=#000000>drawOneTick</font>(<font color=#A000A0>int</font> tickLength, <font color=#A000A0>int</font> tickLabel = -1) {
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; tickLength; i++)
+      cout &lt;&lt; <font color=#0000FF>"-"</font>;
+    <font color=#00A000>if</font> (tickLabel &gt;= 0) cout &lt;&lt; <font color=#0000FF>" "</font> &lt;&lt; tickLabel;
+    cout &lt;&lt; <font color=#0000FF>"\n"</font>;
+  }
+  <font color=#A000A0>void</font> <font color=#000000>drawTicks</font>(<font color=#A000A0>int</font> tickLength) {		<font color=#0000FF>// draw ticks of given length</font>
+    <font color=#00A000>if</font> (tickLength &gt; 0) {			<font color=#0000FF>// stop when length drops to 0</font>
+      <font color=#000000>drawTicks</font>(tickLength-1);			<font color=#0000FF>// recursively draw left ticks</font>
+      <font color=#000000>drawOneTick</font>(tickLength);			<font color=#0000FF>// draw center tick</font>
+      <font color=#000000>drawTicks</font>(tickLength-1);			<font color=#0000FF>// recursively draw right ticks</font>
+    }
+  }
+  <font color=#A000A0>void</font> <font color=#000000>drawRuler</font>(<font color=#A000A0>int</font> nInches, <font color=#A000A0>int</font> majorLength) {<font color=#0000FF>// draw the entire ruler</font>
+    <font color=#000000>drawOneTick</font>(majorLength, 0);		<font color=#0000FF>// draw tick 0 and its label</font>
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 1; i &lt;= nInches; i++) {
+      <font color=#000000>drawTicks</font>(majorLength-1);			<font color=#0000FF>// draw ticks for this inch</font>
+      <font color=#000000>drawOneTick</font>(majorLength, i);		<font color=#0000FF>// draw tick i and its label</font>
+    }
+  }
+</dl>
+
+</body>
+</html>

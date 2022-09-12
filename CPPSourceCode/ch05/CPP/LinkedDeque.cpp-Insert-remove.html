@@ -1,0 +1,41 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Insert-remove</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Insert-remove</font></h2>
+</center><br><dl><dd><pre>
+
+						<font color=#0000FF>// insert new first element</font>
+  <font color=#A000A0>void</font> LinkedDeque::<font color=#000000>insertFront</font>(<font color=#A000A0>const</font> Elem& e) {
+    D.<font color=#000000>addFront</font>(e);
+    n++;
+  }
+						<font color=#0000FF>// insert new last element</font>
+  <font color=#A000A0>void</font> LinkedDeque::<font color=#000000>insertBack</font>(<font color=#A000A0>const</font> Elem& e) {
+    D.<font color=#000000>addBack</font>(e);
+    n++;
+  }
+						<font color=#0000FF>// remove first element</font>
+  <font color=#A000A0>void</font> LinkedDeque::<font color=#000000>removeFront</font>() <font color=#00A000>throw</font>(DequeEmpty) {
+    <font color=#00A000>if</font> (<font color=#000000>empty</font>())
+      <font color=#00A000>throw</font> <font color=#000000>DequeEmpty</font>(<font color=#0000FF>"removeFront of empty deque"</font>);
+    D.<font color=#000000>removeFront</font>();
+    n--;
+  }
+  						<font color=#0000FF>// remove last element</font>
+  <font color=#A000A0>void</font> LinkedDeque::<font color=#000000>removeBack</font>() <font color=#00A000>throw</font>(DequeEmpty)  {
+    <font color=#00A000>if</font> (<font color=#000000>empty</font>())
+      <font color=#00A000>throw</font> <font color=#000000>DequeEmpty</font>(<font color=#0000FF>"removeBack of empty deque"</font>);
+    D.<font color=#000000>removeBack</font>();
+    n--;
+  }
+</dl>
+
+</body>
+</html>

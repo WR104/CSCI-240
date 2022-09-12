@@ -1,0 +1,37 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// a red-black tree</font>
+  <font color=#A000A0>class</font> RBTree : <font color=#A000A0>public</font> SearchTree&lt; RBEntry&lt;E&gt; &gt; {
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public types</font>
+    <font color=#A000A0>typedef</font> RBEntry&lt;E&gt; RBEntry;				<font color=#0000FF>// an entry</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> SearchTree&lt;RBEntry&gt;::Iterator Iterator; <font color=#0000FF>// an iterator</font>
+  <font color=#A000A0>protected</font>:						<font color=#0000FF>// local types</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> RBEntry::Key K;			<font color=#0000FF>// a key</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> RBEntry::Value V;			<font color=#0000FF>// a value</font>
+    <font color=#A000A0>typedef</font> SearchTree&lt;RBEntry&gt; ST;			<font color=#0000FF>// a search tree</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> ST::TPos TPos;			<font color=#0000FF>// a tree position</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#000000>RBTree</font>();						<font color=#0000FF>// constructor</font>
+    Iterator <font color=#000000>insert</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& x);		<font color=#0000FF>// insert (k,x)</font>
+    <font color=#A000A0>void</font> <font color=#000000>erase</font>(<font color=#A000A0>const</font> K& k) <font color=#00A000>throw</font>(NonexistentElement);	<font color=#0000FF>// remove key k entry</font>
+    <font color=#A000A0>void</font> <font color=#000000>erase</font>(<font color=#A000A0>const</font> Iterator& p);			<font color=#0000FF>// remove entry at p</font>
+  <font color=#A000A0>protected</font>:						<font color=#0000FF>// utility functions </font>
+    <font color=#A000A0>void</font> <font color=#000000>remedyDoubleRed</font>(<font color=#A000A0>const</font> TPos& z);		<font color=#0000FF>// fix double-red z</font>
+    <font color=#A000A0>void</font> <font color=#000000>remedyDoubleBlack</font>(<font color=#A000A0>const</font> TPos& r);		<font color=#0000FF>// fix double-black r</font>
+    <font color=#0000FF>// ...(other utilities omitted)</font>
+  };
+</dl>
+
+</body>
+</html>

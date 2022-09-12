@@ -1,0 +1,45 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>RemedyBlack</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: RemedyBlack</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// fix double-black r</font>
+  <font color=#A000A0>void</font> RBTree&lt;E&gt;::<font color=#000000>remedyDoubleBlack</font>(<font color=#A000A0>const</font> TPos& r) {
+    TPos x = r.<font color=#000000>parent</font>();				<font color=#0000FF>// r's parent</font>
+    TPos y = <font color=#000000>sibling</font>(r);				<font color=#0000FF>// r's sibling</font>
+    <font color=#00A000>if</font> (y-&gt;<font color=#000000>isBlack</font>())  {
+      <font color=#00A000>if</font> (y.<font color=#000000>left</font>()-&gt;<font color=#000000>isRed</font>() || y.<font color=#000000>right</font>()-&gt;<font color=#000000>isRed</font>()) {	<font color=#0000FF>// Case 1: restructuring</font>
+							<font color=#0000FF>// z is y's red child</font>
+	TPos z = (y.<font color=#000000>left</font>()-&gt;<font color=#000000>isRed</font>() ? y.<font color=#000000>left</font>() : y.<font color=#000000>right</font>());
+        Color topColor = x-&gt;<font color=#000000>color</font>();			<font color=#0000FF>// save top vertex color</font>
+        z = <font color=#000000>restructure</font>(z);				<font color=#0000FF>// restructure x,y,z</font>
+	<font color=#000000>setColor</font>(z, topColor);				<font color=#0000FF>// give z saved color</font>
+        <font color=#000000>setBlack</font>(r);					<font color=#0000FF>// set r black</font>
+        <font color=#000000>setBlack</font>(z.<font color=#000000>left</font>()); <font color=#000000>setBlack</font>(z.<font color=#000000>right</font>());	<font color=#0000FF>// set z's children black</font>
+      }
+      <font color=#00A000>else</font> {						<font color=#0000FF>// Case 2: recoloring</font>
+        <font color=#000000>setBlack</font>(r); <font color=#000000>setRed</font>(y);				<font color=#0000FF>// r=black, y=red</font>
+        <font color=#00A000>if</font> (x-&gt;<font color=#000000>isBlack</font>() && !(x == ST::<font color=#000000>root</font>()))
+  	<font color=#000000>remedyDoubleBlack</font>(x);				<font color=#0000FF>// fix double-black x</font>
+        <font color=#000000>setBlack</font>(x);
+      }
+    }
+    <font color=#00A000>else</font> {						<font color=#0000FF>// Case 3: adjustment</font>
+      TPos z = (y == x.<font color=#000000>right</font>() ? y.<font color=#000000>right</font>() : y.<font color=#000000>left</font>());	<font color=#0000FF>// grandchild on y's side</font>
+      <font color=#000000>restructure</font>(z);					<font color=#0000FF>// restructure x,y,z</font>
+      <font color=#000000>setBlack</font>(y); <font color=#000000>setRed</font>(x);				<font color=#0000FF>// y=black, x=red</font>
+      <font color=#000000>remedyDoubleBlack</font>(r);				<font color=#0000FF>// fix r by Case 1 or 2</font>
+    }
+  }
+</dl>
+
+</body>
+</html>

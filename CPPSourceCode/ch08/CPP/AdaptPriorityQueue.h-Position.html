@@ -1,0 +1,24 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Position</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Position</font></h2>
+</center><br><dl><dd><pre>
+
+    <font color=#A000A0>class</font> Position {				<font color=#0000FF>// a position in the queue</font>
+    <font color=#A000A0>private</font>:
+      <font color=#A000A0>typename</font> ElementList::iterator q;		<font color=#0000FF>// a position in the list</font>
+    <font color=#A000A0>public</font>:
+      <font color=#A000A0>const</font> E& <font color=#A000A0>operator</font>*() { <font color=#00A000>return</font> *q; }	<font color=#0000FF>// the element at this position</font>
+      <font color=#A000A0>friend</font> <font color=#A000A0>class</font> AdaptPriorityQueue;		<font color=#0000FF>// grant access</font>
+    };
+</dl>
+
+</body>
+</html>

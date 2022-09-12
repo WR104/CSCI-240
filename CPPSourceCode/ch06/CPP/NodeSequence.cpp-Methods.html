@@ -1,0 +1,32 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Methods</font></h2>
+</center><br><dl><dd><pre>
+
+  						<font color=#0000FF>// get position from index</font>
+  NodeSequence::Iterator NodeSequence::<font color=#000000>atIndex</font>(<font color=#A000A0>int</font> i) <font color=#A000A0>const</font> {
+    Iterator p = <font color=#000000>begin</font>();
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = 0; j &lt; i; j++) ++p;
+    <font color=#00A000>return</font> p;
+  }
+  						<font color=#0000FF>// get index from position</font>
+  <font color=#A000A0>int</font> NodeSequence::<font color=#000000>indexOf</font>(<font color=#A000A0>const</font> Iterator& p) <font color=#A000A0>const</font> {
+    Iterator q = <font color=#000000>begin</font>();
+    <font color=#A000A0>int</font> j = 0;
+    <font color=#00A000>while</font> (q != p) {				<font color=#0000FF>// until finding p</font>
+      ++q; ++j;					<font color=#0000FF>// advance and count hops</font>
+    }
+    <font color=#00A000>return</font> j;
+  }
+</dl>
+
+</body>
+</html>

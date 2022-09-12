@@ -1,0 +1,28 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;
+  <font color=#A000A0>class</font> HashDict : <font color=#A000A0>public</font> HashMap&lt;K,V,H&gt; {
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Iterator Iterator;
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Entry Entry;
+    <font color=#0000FF>// ...insert Range class declaration here</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#000000>HashDict</font>(<font color=#A000A0>int</font> capacity = 100);			<font color=#0000FF>// constructor</font>
+    Range <font color=#000000>findAll</font>(<font color=#A000A0>const</font> K& k);				<font color=#0000FF>// find all entries with k</font>
+    Iterator <font color=#000000>insert</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& v);		<font color=#0000FF>// insert pair (k,v)</font>
+  };
+</dl>
+
+</body>
+</html>

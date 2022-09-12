@@ -1,0 +1,23 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Insert</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Insert</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// insert pair (k,v)</font>
+  <font color=#A000A0>typename</font> HashDict&lt;K,V,H&gt;::Iterator HashDict&lt;K,V,H&gt;::<font color=#000000>insert</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& v) {
+    Iterator p = <font color=#000000>finder</font>(k);				<font color=#0000FF>// find key</font>
+    Iterator q = <font color=#000000>inserter</font>(p, <font color=#000000>Entry</font>(k, v));		<font color=#0000FF>// insert it here</font>
+    <font color=#00A000>return</font> q;						<font color=#0000FF>// return its position</font>
+  }
+</dl>
+
+</body>
+</html>

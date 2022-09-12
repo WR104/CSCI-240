@@ -1,0 +1,34 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Iterator-methods</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Iterator-methods</font></h2>
+</center><br><dl><dd><pre>
+
+  NodeList::Iterator::<font color=#000000>Iterator</font>(Node* u)		<font color=#0000FF>// constructor from Node*</font>
+    { v = u; }
+
+  Elem& NodeList::Iterator::<font color=#A000A0>operator</font>*()		<font color=#0000FF>// reference to the element</font>
+    { <font color=#00A000>return</font> v-&gt;elem; }
+  						<font color=#0000FF>// compare positions</font>
+  <font color=#A000A0>bool</font> NodeList::Iterator::<font color=#A000A0>operator</font>==(<font color=#A000A0>const</font> Iterator& p) <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> v == p.v; }
+
+  <font color=#A000A0>bool</font> NodeList::Iterator::<font color=#A000A0>operator</font>!=(<font color=#A000A0>const</font> Iterator& p) <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> v != p.v; }
+  						<font color=#0000FF>// move to next position</font>
+  NodeList::Iterator& NodeList::Iterator::<font color=#A000A0>operator</font>++()
+    { v = v-&gt;next; <font color=#00A000>return</font> *<font color=#A000A0>this</font>; }
+  						<font color=#0000FF>// move to previous position</font>
+  NodeList::Iterator& NodeList::Iterator::<font color=#A000A0>operator</font>--()
+    { v = v-&gt;prev; <font color=#00A000>return</font> *<font color=#A000A0>this</font>; }
+</dl>
+
+</body>
+</html>

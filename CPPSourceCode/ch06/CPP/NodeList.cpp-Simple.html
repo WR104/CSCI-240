@@ -1,0 +1,30 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Simple</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Simple</font></h2>
+</center><br><dl><dd><pre>
+
+  NodeList::<font color=#000000>NodeList</font>() {			<font color=#0000FF>// constructor</font>
+    n = 0;					<font color=#0000FF>// initially empty</font>
+    header = <font color=#A000A0>new</font> Node;				<font color=#0000FF>// create sentinels</font>
+    trailer = <font color=#A000A0>new</font> Node;
+    header-&gt;next = trailer;			<font color=#0000FF>// have them point to each other</font>
+    trailer-&gt;prev = header;
+  }
+
+  <font color=#A000A0>int</font> NodeList::<font color=#000000>size</font>() <font color=#A000A0>const</font> 			<font color=#0000FF>// list size</font>
+    { <font color=#00A000>return</font> n; }
+
+  <font color=#A000A0>bool</font> NodeList::<font color=#000000>empty</font>() <font color=#A000A0>const</font> 			<font color=#0000FF>// is the list empty?</font>
+    { <font color=#00A000>return</font> (n == 0); }
+</dl>
+
+</body>
+</html>

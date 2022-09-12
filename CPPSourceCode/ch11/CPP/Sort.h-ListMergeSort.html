@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>ListMergeSort</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: ListMergeSort</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;			<font color=#0000FF>// merge-sort S</font>
+  <font color=#A000A0>void</font> <font color=#000000>mergeSort</font>(list&lt;E&gt;& S, <font color=#A000A0>const</font> C& less) {
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> list&lt;E&gt;::iterator Itor;		<font color=#0000FF>// sequence of elements</font>
+    <font color=#A000A0>int</font> n = S.<font color=#000000>size</font>();
+    <font color=#00A000>if</font> (n &lt;= 1) <font color=#00A000>return</font>;					<font color=#0000FF>// already sorted</font>
+    list&lt;E&gt; S1, S2;
+    Itor p = S.<font color=#000000>begin</font>();
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; n/2; i++) S1.<font color=#000000>push_back</font>(*p++);	<font color=#0000FF>// copy first half to S1</font>
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = n/2; i &lt; n; i++) S2.<font color=#000000>push_back</font>(*p++);	<font color=#0000FF>// copy second half to S2</font>
+    S.<font color=#000000>clear</font>();						<font color=#0000FF>// clear S's contents</font>
+    <font color=#000000>mergeSort</font>(S1, less);				<font color=#0000FF>// recur on first half</font>
+    <font color=#000000>mergeSort</font>(S2, less);				<font color=#0000FF>// recur on second half</font>
+    <font color=#000000>merge</font>(S1, S2, S, less);				<font color=#0000FF>// merge S1 and S2 into S</font>
+  }
+</dl>
+
+</body>
+</html>

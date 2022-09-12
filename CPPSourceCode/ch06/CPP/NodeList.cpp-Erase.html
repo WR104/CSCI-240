@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Erase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Erase</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>void</font> NodeList::<font color=#000000>erase</font>(<font color=#A000A0>const</font> Iterator& p) {	<font color=#0000FF>// remove p</font>
+    Node* v = p.v;				<font color=#0000FF>// node to remove</font>
+    Node* w = v-&gt;next;				<font color=#0000FF>// successor</font>
+    Node* u = v-&gt;prev;				<font color=#0000FF>// predecessor</font>
+    u-&gt;next = w;  w-&gt;prev = u;			<font color=#0000FF>// unlink p</font>
+    <font color=#A000A0>delete</font> v;					<font color=#0000FF>// delete this node</font>
+    n--;					<font color=#0000FF>// one fewer element</font>
+  }
+
+  <font color=#A000A0>void</font> NodeList::<font color=#000000>eraseFront</font>()			<font color=#0000FF>// remove first</font>
+    { <font color=#000000>erase</font>(<font color=#000000>begin</font>()); }
+
+  <font color=#A000A0>void</font> NodeList::<font color=#000000>eraseBack</font>()			<font color=#0000FF>// remove last</font>
+    { <font color=#000000>erase</font>(--<font color=#000000>end</font>()); }
+</dl>
+
+</body>
+</html>

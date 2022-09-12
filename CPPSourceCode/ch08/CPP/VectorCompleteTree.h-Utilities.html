@@ -1,0 +1,26 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Utilities</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Utilities</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>private</font>:					<font color=#0000FF>// member data</font>
+    std::vector&lt;E&gt; V;				<font color=#0000FF>// tree contents</font>
+  <font color=#A000A0>public</font>:					<font color=#0000FF>// publicly accessible types</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> std::vector&lt;E&gt;::iterator Position; <font color=#0000FF>// a position in the tree</font>
+  <font color=#A000A0>protected</font>:					<font color=#0000FF>// protected utility functions</font>
+    Position <font color=#000000>pos</font>(<font color=#A000A0>int</font> i)				<font color=#0000FF>// map an index to a position</font>
+      { <font color=#00A000>return</font> V.<font color=#000000>begin</font>() + i; }
+    <font color=#A000A0>int</font> <font color=#000000>idx</font>(<font color=#A000A0>const</font> Position& p) <font color=#A000A0>const</font>		<font color=#0000FF>// map a position to an index</font>
+      { <font color=#00A000>return</font> p - V.<font color=#000000>begin</font>(); }
+</dl>
+
+</body>
+</html>

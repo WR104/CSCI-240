@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Find</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Find</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// find utility</font>
+  <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Iterator HashMap&lt;K,V,H&gt;::<font color=#000000>finder</font>(<font color=#A000A0>const</font> K& k) {
+    <font color=#A000A0>int</font> i = <font color=#000000>hash</font>(k) % B.<font color=#000000>size</font>();				<font color=#0000FF>// get hash index i</font>
+    BItor bkt = B.<font color=#000000>begin</font>() + i;				<font color=#0000FF>// the ith bucket</font>
+    Iterator <font color=#000000>p</font>(B, bkt, bkt-&gt;<font color=#000000>begin</font>());			<font color=#0000FF>// start of ith bucket</font>
+    <font color=#00A000>while</font> (!<font color=#000000>endOfBkt</font>(p) && (*p).<font color=#000000>key</font>() != k)		<font color=#0000FF>// search for k</font>
+      <font color=#000000>nextEntry</font>(p);
+    <font color=#00A000>return</font> p;						<font color=#0000FF>// return final position</font>
+  }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// find key</font>
+  <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Iterator HashMap&lt;K,V,H&gt;::<font color=#000000>find</font>(<font color=#A000A0>const</font> K& k) {
+    Iterator p = <font color=#000000>finder</font>(k);				<font color=#0000FF>// look for k</font>
+    <font color=#00A000>if</font> (<font color=#000000>endOfBkt</font>(p))					<font color=#0000FF>// didn't find it?</font>
+      <font color=#00A000>return</font> <font color=#000000>end</font>();					<font color=#0000FF>// return end iterator</font>
+    <font color=#00A000>else</font>
+      <font color=#00A000>return</font> p;						<font color=#0000FF>// return its position</font>
+  }
+</dl>
+
+</body>
+</html>

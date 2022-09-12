@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Put</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Put</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// insert utility</font>
+  <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Iterator HashMap&lt;K,V,H&gt;::<font color=#000000>inserter</font>(<font color=#A000A0>const</font> Iterator& p, <font color=#A000A0>const</font> Entry& e) {
+    EItor ins = p.bkt-&gt;<font color=#000000>insert</font>(p.ent, e);		<font color=#0000FF>// insert before p</font>
+    n++;						<font color=#0000FF>// one more entry</font>
+    <font color=#00A000>return</font> <font color=#000000>Iterator</font>(B, p.bkt, ins);			<font color=#0000FF>// return this position</font>
+  }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> K, <font color=#A000A0>typename</font> V, <font color=#A000A0>typename</font> H&gt;		<font color=#0000FF>// insert/replace (v,k)</font>
+  <font color=#A000A0>typename</font> HashMap&lt;K,V,H&gt;::Iterator HashMap&lt;K,V,H&gt;::<font color=#000000>put</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& v) {
+    Iterator p = <font color=#000000>finder</font>(k);				<font color=#0000FF>// search for k</font>
+    <font color=#00A000>if</font> (<font color=#000000>endOfBkt</font>(p)) {					<font color=#0000FF>// k not found?</font>
+      <font color=#00A000>return</font> <font color=#000000>inserter</font>(p, <font color=#000000>Entry</font>(k, v));			<font color=#0000FF>// insert at end of bucket</font>
+    }
+    <font color=#00A000>else</font> {						<font color=#0000FF>// found it?</font>
+      p.ent-&gt;<font color=#000000>setValue</font>(v);				<font color=#0000FF>// replace value with v</font>
+      <font color=#00A000>return</font> p;						<font color=#0000FF>// return this position</font>
+    }
+  }
+</dl>
+
+</body>
+</html>

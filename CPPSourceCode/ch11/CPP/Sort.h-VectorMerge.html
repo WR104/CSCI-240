@@ -1,0 +1,37 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>VectorMerge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: VectorMerge</font></h2>
+</center><br><dl><dd><pre>
+
+    				<font color=#0000FF>// merge in[b..b+m-1] and in[b+m..b+2*m-1]</font>
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;
+  <font color=#A000A0>void</font> <font color=#000000>merge</font>(vector&lt;E&gt;& in, vector&lt;E&gt;& out, <font color=#A000A0>const</font> C& less, <font color=#A000A0>int</font> b, <font color=#A000A0>int</font> m) {
+    <font color=#A000A0>int</font> i = b;						<font color=#0000FF>// index into run #1</font>
+    <font color=#A000A0>int</font> j = b + m;					<font color=#0000FF>// index into run #2</font>
+    <font color=#A000A0>int</font> n = in.<font color=#000000>size</font>();
+    <font color=#A000A0>int</font> e1 = std::<font color=#000000>min</font>(b + m, n);			<font color=#0000FF>// end of run #1</font>
+    <font color=#A000A0>int</font> e2 = std::<font color=#000000>min</font>(b + 2*m, n);			<font color=#0000FF>// end of run #2</font>
+    <font color=#A000A0>int</font> k = b;
+    <font color=#00A000>while</font> ((i &lt; e1) && (j &lt; e2)) {
+      <font color=#00A000>if</font>(!<font color=#000000>less</font>(in[j], in[i]))				<font color=#0000FF>// append smaller to S</font>
+        out[k++] = in[i++];
+      <font color=#00A000>else</font>
+        out[k++] = in[j++];
+    }
+    <font color=#00A000>while</font> (i &lt; e1)					<font color=#0000FF>// copy rest of run 1 to S</font>
+      out[k++] = in[i++];
+    <font color=#00A000>while</font> (j &lt; e2)					<font color=#0000FF>// copy rest of run 2 to S</font>
+      out[k++] = in[j++];
+  }
+</dl>
+
+</body>
+</html>

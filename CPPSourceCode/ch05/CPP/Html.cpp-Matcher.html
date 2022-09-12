@@ -1,0 +1,36 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Matcher</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Matcher</font></h2>
+</center><br><dl><dd><pre>
+
+  						<font color=#0000FF>// check for matching tags</font>
+  <font color=#A000A0>bool</font> <font color=#000000>isHtmlMatched</font>(<font color=#A000A0>const</font> vector&lt;string&gt;& tags) {
+    LinkedStack S;				<font color=#0000FF>// stack for opening tags</font>
+    <font color=#A000A0>typedef</font> vector&lt;string&gt;::const_iterator Iter;<font color=#0000FF>// iterator type</font>
+    						<font color=#0000FF>// iterate through vector</font>
+    <font color=#00A000>for</font> (Iter p = tags.<font color=#000000>begin</font>(); p != tags.<font color=#000000>end</font>(); ++p) {
+      <font color=#00A000>if</font> (p-&gt;<font color=#000000>at</font>(1) != '/')			<font color=#0000FF>// opening tag?</font>
+        S.<font color=#000000>push</font>(*p);				<font color=#0000FF>// push it on the stack</font>
+      <font color=#00A000>else</font> {					<font color=#0000FF>// else must be closing tag</font>
+        <font color=#00A000>if</font> (S.<font color=#000000>empty</font>()) <font color=#00A000>return</font> <font color=#A000A0>false</font>;		<font color=#0000FF>// nothing to match - failure</font>
+        string open = S.<font color=#000000>top</font>().<font color=#000000>substr</font>(1);	<font color=#0000FF>// opening tag excluding '&lt;'</font>
+        string close = p-&gt;<font color=#000000>substr</font>(2);		<font color=#0000FF>// closing tag excluding '&lt;/'</font>
+        <font color=#00A000>if</font> (open.<font color=#000000>compare</font>(close) != 0) <font color=#00A000>return</font> <font color=#A000A0>false</font>; <font color=#0000FF>// fail to match</font>
+	<font color=#00A000>else</font> S.<font color=#000000>pop</font>();				<font color=#0000FF>// pop matched element</font>
+      }
+    }
+    <font color=#00A000>if</font> (S.<font color=#000000>empty</font>()) <font color=#00A000>return</font> <font color=#A000A0>true</font>;			<font color=#0000FF>// everything matched - good</font>
+    <font color=#00A000>else</font> <font color=#00A000>return</font> <font color=#A000A0>false</font>;				<font color=#0000FF>// some unmatched - bad</font>
+  }
+</dl>
+
+</body>
+</html>

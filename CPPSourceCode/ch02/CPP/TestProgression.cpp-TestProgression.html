@@ -1,0 +1,43 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>TestProgression</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: TestProgression</font></h2>
+</center><br><dl><dd><pre>
+
+<font color = #0000FF>/** Test program for the progression classes */</font>
+<font color=#A000A0>int</font> <font color=#000000>main</font>() {
+  Progression* prog;
+					<font color=#0000FF>// test ArithProgression</font>
+  cout &lt;&lt; <font color=#0000FF>"Arithmetic progression with default increment:\n"</font>;
+  prog = <font color=#A000A0>new</font> <font color=#000000>ArithProgression</font>();
+  prog-&gt;<font color=#000000>printProgression</font>(10);
+  cout &lt;&lt; <font color=#0000FF>"Arithmetic progression with increment 5:\n"</font>;
+  prog = <font color=#A000A0>new</font> <font color=#000000>ArithProgression</font>(5);
+  prog-&gt;<font color=#000000>printProgression</font>(10);
+					<font color=#0000FF>// test GeomProgression</font>
+  cout &lt;&lt; <font color=#0000FF>"Geometric progression with default base:\n"</font>;
+  prog = <font color=#A000A0>new</font> <font color=#000000>GeomProgression</font>();
+  prog-&gt;<font color=#000000>printProgression</font>(10);
+  cout &lt;&lt; <font color=#0000FF>"Geometric progression with base 3:\n"</font>;
+  prog = <font color=#A000A0>new</font> <font color=#000000>GeomProgression</font>(3);
+  prog-&gt;<font color=#000000>printProgression</font>(10);
+					<font color=#0000FF>// test FibonacciProgression</font>
+  cout &lt;&lt; <font color=#0000FF>"Fibonacci progression with default start values:\n"</font>;
+  prog = <font color=#A000A0>new</font> <font color=#000000>FibonacciProgression</font>();
+  prog-&gt;<font color=#000000>printProgression</font>(10);
+  cout &lt;&lt; <font color=#0000FF>"Fibonacci progression with start values 4 and 6:\n"</font>;
+  prog = <font color=#A000A0>new</font> <font color=#000000>FibonacciProgression</font>(4, 6);
+  prog-&gt;<font color=#000000>printProgression</font>(10);
+  <font color=#00A000>return</font> EXIT_SUCCESS;			<font color=#0000FF>// successful execution</font>
+}
+</dl>
+
+</body>
+</html>

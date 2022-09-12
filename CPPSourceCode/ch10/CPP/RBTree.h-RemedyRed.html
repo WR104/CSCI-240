@@ -1,0 +1,35 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>RemedyRed</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: RemedyRed</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// fix double-red z</font>
+  <font color=#A000A0>void</font> RBTree&lt;E&gt;::<font color=#000000>remedyDoubleRed</font>(<font color=#A000A0>const</font> TPos& z) {
+    TPos v = z.<font color=#000000>parent</font>();				<font color=#0000FF>// v is z's parent</font>
+    <font color=#00A000>if</font> (v == ST::<font color=#000000>root</font>() || v-&gt;<font color=#000000>isBlack</font>()) <font color=#00A000>return</font>;	<font color=#0000FF>// v is black, all ok</font>
+    							<font color=#0000FF>// z, v are double-red</font>
+    <font color=#00A000>if</font> (<font color=#000000>sibling</font>(v)-&gt;<font color=#000000>isBlack</font>())  {			<font color=#0000FF>// Case 1: restructuring</font>
+      v = <font color=#000000>restructure</font>(z);
+      <font color=#000000>setBlack</font>(v);					<font color=#0000FF>// top vertex now black</font>
+      <font color=#000000>setRed</font>(v.<font color=#000000>left</font>()); <font color=#000000>setRed</font>(v.<font color=#000000>right</font>());		<font color=#0000FF>// set children red</font>
+    }  
+    <font color=#00A000>else</font>  {						<font color=#0000FF>// Case 2: recoloring</font>
+      <font color=#000000>setBlack</font>(v); <font color=#000000>setBlack</font>(<font color=#000000>sibling</font>(v));		<font color=#0000FF>// set v and sibling black</font>
+      TPos u = v.<font color=#000000>parent</font>();				<font color=#0000FF>// u is v's parent</font>
+      <font color=#00A000>if</font> (u == ST::<font color=#000000>root</font>()) <font color=#00A000>return</font>;
+      <font color=#000000>setRed</font>(u);					<font color=#0000FF>// make u red</font>
+      <font color=#000000>remedyDoubleRed</font>(u);				<font color=#0000FF>// may need to fix u now</font>
+    }
+  }
+</dl>
+
+</body>
+</html>

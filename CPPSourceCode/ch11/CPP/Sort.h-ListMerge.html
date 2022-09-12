@@ -1,0 +1,33 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>ListMerge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: ListMerge</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;			<font color=#0000FF>// merge utility</font>
+  <font color=#A000A0>void</font> <font color=#000000>merge</font>(list&lt;E&gt;& S1, list&lt;E&gt;& S2, list&lt;E&gt;& S, <font color=#A000A0>const</font> C& less) {
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> list&lt;E&gt;::iterator Itor;		<font color=#0000FF>// sequence of elements</font>
+    Itor p1 = S1.<font color=#000000>begin</font>();
+    Itor p2 = S2.<font color=#000000>begin</font>();
+    <font color=#00A000>while</font>(p1 != S1.<font color=#000000>end</font>() && p2 != S2.<font color=#000000>end</font>()) {		<font color=#0000FF>// until either is empty</font>
+      <font color=#00A000>if</font>(<font color=#000000>less</font>(*p1, *p2)) 				<font color=#0000FF>// append smaller to S</font>
+        S.<font color=#000000>push_back</font>(*p1++);
+      <font color=#00A000>else</font>
+        S.<font color=#000000>push_back</font>(*p2++);
+    }
+    <font color=#00A000>while</font>(p1 != S1.<font color=#000000>end</font>())				<font color=#0000FF>// copy rest of S1 to S</font>
+      S.<font color=#000000>push_back</font>(*p1++);
+    <font color=#00A000>while</font>(p2 != S2.<font color=#000000>end</font>())				<font color=#0000FF>// copy rest of S2 to S</font>
+      S.<font color=#000000>push_back</font>(*p2++);
+  }
+</dl>
+
+</body>
+</html>

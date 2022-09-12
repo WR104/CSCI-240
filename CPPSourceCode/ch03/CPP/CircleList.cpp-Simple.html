@@ -1,0 +1,25 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Simple</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Simple</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>bool</font> CircleList::<font color=#000000>empty</font>() <font color=#A000A0>const</font>		<font color=#0000FF>// is list empty?</font>
+    { <font color=#00A000>return</font> cursor == NULL; }
+  <font color=#A000A0>const</font> Elem& CircleList::<font color=#000000>back</font>() <font color=#A000A0>const</font>		<font color=#0000FF>// element at cursor</font>
+    { <font color=#00A000>return</font> cursor-&gt;elem; }
+  <font color=#A000A0>const</font> Elem& CircleList::<font color=#000000>front</font>() <font color=#A000A0>const</font>		<font color=#0000FF>// element following cursor</font>
+    { <font color=#00A000>return</font> cursor-&gt;next-&gt;elem; }
+  <font color=#A000A0>void</font> CircleList::<font color=#000000>advance</font>()			<font color=#0000FF>// advance cursor</font>
+    { cursor = cursor-&gt;next; }
+</dl>
+
+</body>
+</html>

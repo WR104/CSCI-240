@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>AVLEntry</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: AVLEntry</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;
+  <font color=#A000A0>class</font> AVLEntry : <font color=#A000A0>public</font> E {				<font color=#0000FF>// an AVL entry</font>
+  <font color=#A000A0>private</font>:
+    <font color=#A000A0>int</font> ht;						<font color=#0000FF>// node height</font>
+  <font color=#A000A0>protected</font>:						<font color=#0000FF>// local types</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> E::Key K;				<font color=#0000FF>// key type</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> E::Value V;			<font color=#0000FF>// value type</font>
+    <font color=#A000A0>int</font> <font color=#000000>height</font>() <font color=#A000A0>const</font> { <font color=#00A000>return</font> ht; }			<font color=#0000FF>// get height</font>
+    <font color=#A000A0>void</font> <font color=#000000>setHeight</font>(<font color=#A000A0>int</font> h) { ht = h; }			<font color=#0000FF>// set height</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#000000>AVLEntry</font>(<font color=#A000A0>const</font> K& k = <font color=#000000>K</font>(), <font color=#A000A0>const</font> V& v = <font color=#000000>V</font>())	<font color=#0000FF>// constructor</font>
+        : <font color=#000000>E</font>(k,v), <font color=#000000>ht</font>(0) { }	
+    <font color=#A000A0>friend</font> <font color=#A000A0>class</font> AVLTree&lt;E&gt;;				<font color=#0000FF>// allow AVLTree access</font>
+  };
+</dl>
+
+</body>
+</html>

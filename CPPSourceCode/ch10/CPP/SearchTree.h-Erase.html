@@ -1,0 +1,43 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Erase</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Erase</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// remove utility</font>
+  <font color=#A000A0>typename</font> SearchTree&lt;E&gt;::TPos SearchTree&lt;E&gt;::<font color=#000000>eraser</font>(TPos& v) {
+    TPos w;
+    <font color=#00A000>if</font> (v.<font color=#000000>left</font>().<font color=#000000>isExternal</font>()) w = v.<font color=#000000>left</font>();		<font color=#0000FF>// remove from left</font>
+    <font color=#00A000>else</font> <font color=#00A000>if</font> (v.<font color=#000000>right</font>().<font color=#000000>isExternal</font>()) w = v.<font color=#000000>right</font>();	<font color=#0000FF>// remove from right</font>
+    <font color=#00A000>else</font> {						<font color=#0000FF>// both internal?</font>
+      w = v.<font color=#000000>right</font>();					<font color=#0000FF>// go to right subtree</font>
+      <font color=#00A000>do</font> { w = w.<font color=#000000>left</font>(); } <font color=#00A000>while</font> (w.<font color=#000000>isInternal</font>());	<font color=#0000FF>// get leftmost node</font>
+      TPos u = w.<font color=#000000>parent</font>();
+      v-&gt;<font color=#000000>setKey</font>(u-&gt;<font color=#000000>key</font>()); v-&gt;<font color=#000000>setValue</font>(u-&gt;<font color=#000000>value</font>());	<font color=#0000FF>// copy w's parent to v</font>
+    }
+    n--;						<font color=#0000FF>// one less entry</font>
+    <font color=#00A000>return</font> T.<font color=#000000>removeAboveExternal</font>(w);			<font color=#0000FF>// remove w and parent</font>
+  }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// remove key k entry</font>
+  <font color=#A000A0>void</font> SearchTree&lt;E&gt;::<font color=#000000>erase</font>(<font color=#A000A0>const</font> K& k) <font color=#00A000>throw</font>(NonexistentElement) {
+    TPos v = <font color=#000000>finder</font>(k, <font color=#000000>root</font>());				<font color=#0000FF>// search from virtual root</font>
+    <font color=#00A000>if</font> (v.<font color=#000000>isExternal</font>())					<font color=#0000FF>// not found?</font>
+      <font color=#00A000>throw</font> <font color=#000000>NonexistentElement</font>(<font color=#0000FF>"Erase of nonexistent"</font>);
+    <font color=#000000>eraser</font>(v);						<font color=#0000FF>// remove it</font>
+  }
+  
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// erase entry at p</font>
+  <font color=#A000A0>void</font> SearchTree&lt;E&gt;::<font color=#000000>erase</font>(<font color=#A000A0>const</font> Iterator& p)
+    { <font color=#000000>eraser</font>(p.v); }
+</dl>
+
+</body>
+</html>

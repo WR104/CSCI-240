@@ -1,0 +1,25 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Remove</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Remove</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>void</font> CircleList::<font color=#000000>remove</font>() {			<font color=#0000FF>// remove node after cursor</font>
+    CNode* old = cursor-&gt;next;			<font color=#0000FF>// the node being removed</font>
+    <font color=#00A000>if</font> (old == cursor) 				<font color=#0000FF>// removing the only node?</font>
+      cursor = NULL;				<font color=#0000FF>// list is now empty</font>
+    <font color=#00A000>else</font> 
+      cursor-&gt;next = old-&gt;next;			<font color=#0000FF>// link out the old node </font>
+    <font color=#A000A0>delete</font> old;					<font color=#0000FF>// delete the old node</font>
+  }
+</dl>
+
+</body>
+</html>

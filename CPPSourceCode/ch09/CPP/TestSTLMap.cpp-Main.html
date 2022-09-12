@@ -1,0 +1,31 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Main</font></h2>
+</center><br><dl><dd><pre>
+
+  map&lt;string, <font color=#A000A0>int</font>&gt; myMap;				<font color=#0000FF>// a (string,int) map</font>
+  map&lt;string, <font color=#A000A0>int</font>&gt;::iterator p;				<font color=#0000FF>// an iterator to the map</font>
+  myMap.<font color=#000000>insert</font>(pair&lt;string, <font color=#A000A0>int</font>&gt;(<font color=#0000FF>"Rob"</font>, 28));		<font color=#0000FF>// insert ("Rob",28)</font>
+  myMap[<font color=#0000FF>"Joe"</font>] = 38;					<font color=#0000FF>// insert("Joe",38)</font>
+  myMap[<font color=#0000FF>"Joe"</font>] = 50;					<font color=#0000FF>// change to ("Joe",50)</font>
+  myMap[<font color=#0000FF>"Sue"</font>] = 75;					<font color=#0000FF>// insert("Sue",75)</font>
+  p = myMap.<font color=#000000>find</font>(<font color=#0000FF>"Joe"</font>);				<font color=#0000FF>// *p = ("Joe",50)</font>
+  myMap.<font color=#000000>erase</font>(p);					<font color=#0000FF>// remove ("Joe",50)</font>
+  myMap.<font color=#000000>erase</font>(<font color=#0000FF>"Sue"</font>);					<font color=#0000FF>// remove ("Sue",75)</font>
+  p = myMap.<font color=#000000>find</font>(<font color=#0000FF>"Joe"</font>);
+  <font color=#00A000>if</font> (p == myMap.<font color=#000000>end</font>()) cout &lt;&lt; <font color=#0000FF>"nonexistent\n"</font>;	<font color=#0000FF>// outputs: "nonexistent"</font>
+  <font color=#00A000>for</font> (p = myMap.<font color=#000000>begin</font>(); p != myMap.<font color=#000000>end</font>(); ++p) {	<font color=#0000FF>// print all entries</font>
+    cout &lt;&lt; <font color=#0000FF>"("</font> &lt;&lt; p-&gt;first &lt;&lt; <font color=#0000FF>","</font> &lt;&lt; p-&gt;second &lt;&lt; <font color=#0000FF>")\n"</font>;
+  }
+</dl>
+
+</body>
+</html>

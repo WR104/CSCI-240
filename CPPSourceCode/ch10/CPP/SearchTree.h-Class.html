@@ -1,0 +1,48 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;
+  <font color=#A000A0>class</font> SearchTree {					<font color=#0000FF>// a binary search tree</font>
+  <font color=#A000A0>public</font>: 						<font color=#0000FF>// public types</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> E::Key K;				<font color=#0000FF>// a key</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> E::Value V;			<font color=#0000FF>// a value</font>
+    <font color=#A000A0>class</font> Iterator;					<font color=#0000FF>// an iterator/position</font>
+  <font color=#A000A0>public</font>:						<font color=#0000FF>// public functions</font>
+    <font color=#000000>SearchTree</font>();					<font color=#0000FF>// constructor</font>
+    <font color=#A000A0>int</font> <font color=#000000>size</font>() <font color=#A000A0>const</font>; 					<font color=#0000FF>// number of entries</font>
+    <font color=#A000A0>bool</font> <font color=#000000>empty</font>() <font color=#A000A0>const</font>;					<font color=#0000FF>// is the tree empty?</font>
+    Iterator <font color=#000000>find</font>(<font color=#A000A0>const</font> K& k);				<font color=#0000FF>// find entry with key k</font>
+    Iterator <font color=#000000>insert</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& x);		<font color=#0000FF>// insert (k,x)</font>
+    <font color=#A000A0>void</font> <font color=#000000>erase</font>(<font color=#A000A0>const</font> K& k) <font color=#00A000>throw</font>(NonexistentElement);	<font color=#0000FF>// remove key k entry</font>
+    <font color=#A000A0>void</font> <font color=#000000>erase</font>(<font color=#A000A0>const</font> Iterator& p);			<font color=#0000FF>// remove entry at p</font>
+    Iterator <font color=#000000>begin</font>();					<font color=#0000FF>// iterator to first entry</font>
+    Iterator <font color=#000000>end</font>();					<font color=#0000FF>// iterator to end entry</font>
+  <font color=#A000A0>protected</font>:						<font color=#0000FF>// local utilities</font>
+    <font color=#A000A0>typedef</font> BinaryTree&lt;E&gt; BinaryTree;			<font color=#0000FF>// linked binary tree</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> BinaryTree::Position TPos;		<font color=#0000FF>// position in the tree</font>
+    TPos <font color=#000000>root</font>() <font color=#A000A0>const</font>;					<font color=#0000FF>// get virtual root</font>
+    TPos <font color=#000000>finder</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> TPos& v);		<font color=#0000FF>// find utility</font>
+    TPos <font color=#000000>inserter</font>(<font color=#A000A0>const</font> K& k, <font color=#A000A0>const</font> V& x);		<font color=#0000FF>// insert utility</font>
+    TPos <font color=#000000>eraser</font>(TPos& v);				<font color=#0000FF>// erase utility</font>
+    TPos <font color=#000000>restructure</font>(<font color=#A000A0>const</font> TPos& v) 			<font color=#0000FF>// restructure</font>
+      	<font color=#00A000>throw</font>(BoundaryViolation);
+  <font color=#A000A0>private</font>: 						<font color=#0000FF>// member data</font>
+    BinaryTree T;					<font color=#0000FF>// the binary tree</font>
+    <font color=#A000A0>int</font> n;						<font color=#0000FF>// number of entries</font>
+  <font color=#A000A0>public</font>:
+    <font color=#0000FF>// ...insert Iterator class declaration here</font>
+  };
+</dl>
+
+</body>
+</html>

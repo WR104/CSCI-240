@@ -1,0 +1,36 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;
+  <font color=#A000A0>class</font> VectorCompleteTree {
+    <font color=#0000FF>//... insert private member data and protected utilities here</font>
+  <font color=#A000A0>public</font>:
+    <font color=#000000>VectorCompleteTree</font>() : <font color=#000000>V</font>(1) {}		<font color=#0000FF>// constructor</font>
+    <font color=#A000A0>int</font> <font color=#000000>size</font>() <font color=#A000A0>const</font>				{ <font color=#00A000>return</font> V.<font color=#000000>size</font>() - 1; }
+    Position <font color=#000000>left</font>(<font color=#A000A0>const</font> Position& p)		{ <font color=#00A000>return</font> <font color=#000000>pos</font>(2*<font color=#000000>idx</font>(p)); }
+    Position <font color=#000000>right</font>(<font color=#A000A0>const</font> Position& p)		{ <font color=#00A000>return</font> <font color=#000000>pos</font>(2*<font color=#000000>idx</font>(p) + 1); }
+    Position <font color=#000000>parent</font>(<font color=#A000A0>const</font> Position& p)		{ <font color=#00A000>return</font> <font color=#000000>pos</font>(<font color=#000000>idx</font>(p)/2); }
+    <font color=#A000A0>bool</font> <font color=#000000>hasLeft</font>(<font color=#A000A0>const</font> Position& p) <font color=#A000A0>const</font>	{ <font color=#00A000>return</font> 2*<font color=#000000>idx</font>(p) &lt;= <font color=#000000>size</font>(); }
+    <font color=#A000A0>bool</font> <font color=#000000>hasRight</font>(<font color=#A000A0>const</font> Position& p) <font color=#A000A0>const</font> 	{ <font color=#00A000>return</font> 2*<font color=#000000>idx</font>(p) + 1 &lt;= <font color=#000000>size</font>(); }
+    <font color=#A000A0>bool</font> <font color=#000000>isRoot</font>(<font color=#A000A0>const</font> Position& p) <font color=#A000A0>const</font>	{ <font color=#00A000>return</font> <font color=#000000>idx</font>(p) == 1; }
+    Position <font color=#000000>root</font>()				{ <font color=#00A000>return</font> <font color=#000000>pos</font>(1); }
+    Position <font color=#000000>last</font>()				{ <font color=#00A000>return</font> <font color=#000000>pos</font>(<font color=#000000>size</font>()); }
+    <font color=#A000A0>void</font> <font color=#000000>addLast</font>(<font color=#A000A0>const</font> E& e)			{ V.<font color=#000000>push_back</font>(e); }
+    <font color=#A000A0>void</font> <font color=#000000>removeLast</font>()				{ V.<font color=#000000>pop_back</font>(); }
+    <font color=#A000A0>void</font> <font color=#000000>swap</font>(<font color=#A000A0>const</font> Position& p, <font color=#A000A0>const</font> Position& q)
+  						{ E e = *q; *q = *p; *p = e; }
+  };
+</dl>
+
+</body>
+</html>

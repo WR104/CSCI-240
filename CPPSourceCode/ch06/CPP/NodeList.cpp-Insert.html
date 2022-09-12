@@ -1,0 +1,33 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Insert</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Insert</font></h2>
+</center><br><dl><dd><pre>
+
+						<font color=#0000FF>// insert e before p</font>
+  <font color=#A000A0>void</font> NodeList::<font color=#000000>insert</font>(<font color=#A000A0>const</font> NodeList::Iterator& p, <font color=#A000A0>const</font> Elem& e) {
+    Node* w = p.v;				<font color=#0000FF>// p's node</font>
+    Node* u = w-&gt;prev;				<font color=#0000FF>// p's predecessor</font>
+    Node* v = <font color=#A000A0>new</font> Node;				<font color=#0000FF>// new node to insert</font>
+    v-&gt;elem = e;
+    v-&gt;next = w;  w-&gt;prev = v;			<font color=#0000FF>// link in v before w</font>
+    v-&gt;prev = u;  u-&gt;next = v;			<font color=#0000FF>// link in v after u</font>
+    n++;
+  }
+
+  <font color=#A000A0>void</font> NodeList::<font color=#000000>insertFront</font>(<font color=#A000A0>const</font> Elem& e)	<font color=#0000FF>// insert at front</font>
+    { <font color=#000000>insert</font>(<font color=#000000>begin</font>(), e); }
+
+  <font color=#A000A0>void</font> NodeList::<font color=#000000>insertBack</font>(<font color=#A000A0>const</font> Elem& e)	<font color=#0000FF>// insert at rear</font>
+    { <font color=#000000>insert</font>(<font color=#000000>end</font>(), e); }
+</dl>
+
+</body>
+</html>

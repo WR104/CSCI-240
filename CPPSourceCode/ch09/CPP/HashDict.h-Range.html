@@ -1,0 +1,27 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Range</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Range</font></h2>
+</center><br><dl><dd><pre>
+
+    <font color=#A000A0>class</font> Range {	                      		<font color=#0000FF>// an iterator range</font>
+    <font color=#A000A0>private</font>:
+      Iterator _begin;					<font color=#0000FF>// front of range</font>
+      Iterator _end;					<font color=#0000FF>// end of range</font>
+    <font color=#A000A0>public</font>:
+      <font color=#000000>Range</font>(<font color=#A000A0>const</font> Iterator& b, <font color=#A000A0>const</font> Iterator& e)	<font color=#0000FF>// constructor</font>
+        : <font color=#000000>_begin</font>(b), <font color=#000000>_end</font>(e) { }
+      Iterator& <font color=#000000>begin</font>() { <font color=#00A000>return</font> _begin; }		<font color=#0000FF>// get beginning</font>
+      Iterator& <font color=#000000>end</font>() { <font color=#00A000>return</font> _end; }			<font color=#0000FF>// get end</font>
+    };
+</dl>
+
+</body>
+</html>

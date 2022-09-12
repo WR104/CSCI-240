@@ -1,0 +1,22 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>QuickSort</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: QuickSort</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;			<font color=#0000FF>// quick-sort S</font>
+  <font color=#A000A0>void</font> <font color=#000000>quickSort</font>(std::vector&lt;E&gt;& S, <font color=#A000A0>const</font> C& less) {
+    <font color=#00A000>if</font> (S.<font color=#000000>size</font>() &lt;= 1) <font color=#00A000>return</font>;				<font color=#0000FF>// already sorted</font>
+    <font color=#000000>quickSortStep</font>(S, 0, S.<font color=#000000>size</font>()-1, less);		<font color=#0000FF>// call sort utility</font>
+  }
+</dl>
+
+</body>
+</html>

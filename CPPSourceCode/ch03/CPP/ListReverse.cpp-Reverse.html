@@ -1,0 +1,28 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Reverse</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Reverse</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>void</font> <font color=#000000>listReverse</font>(DLinkedList& L) {		<font color=#0000FF>// reverse a list</font>
+    DLinkedList T;				<font color=#0000FF>// temporary list</font>
+    <font color=#00A000>while</font> (!L.<font color=#000000>empty</font>()) {			<font color=#0000FF>// reverse L into T</font>
+      string s = L.<font color=#000000>front</font>();  L.<font color=#000000>removeFront</font>();
+      T.<font color=#000000>addFront</font>(s);
+    }
+    <font color=#00A000>while</font> (!T.<font color=#000000>empty</font>()) {			<font color=#0000FF>// copy T back to L</font>
+      string s = T.<font color=#000000>front</font>();  T.<font color=#000000>removeFront</font>();
+      L.<font color=#000000>addBack</font>(s);
+    }
+  }
+</dl>
+
+</body>
+</html>

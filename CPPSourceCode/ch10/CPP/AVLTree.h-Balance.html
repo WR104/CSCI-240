@@ -1,0 +1,23 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Balance</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Balance</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// constructor</font>
+  AVLTree&lt;E&gt;::<font color=#000000>AVLTree</font>() : <font color=#000000>ST</font>() { }
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E&gt;					<font color=#0000FF>// node height utility</font>
+  <font color=#A000A0>int</font> AVLTree&lt;E&gt;::<font color=#000000>height</font>(<font color=#A000A0>const</font> TPos& v) <font color=#A000A0>const</font>
+    { <font color=#00A000>return</font> (v.<font color=#000000>isExternal</font>() ? 0 : v-&gt;<font color=#000000>height</font>()); }
+</dl>
+
+</body>
+</html>

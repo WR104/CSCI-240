@@ -1,0 +1,29 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Add</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Add</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>void</font> CircleList::<font color=#000000>add</font>(<font color=#A000A0>const</font> Elem& e) {		<font color=#0000FF>// add after cursor</font>
+    CNode* v = <font color=#A000A0>new</font> CNode;			<font color=#0000FF>// create a new node</font>
+    v-&gt;elem = e;
+    <font color=#00A000>if</font> (cursor == NULL) {			<font color=#0000FF>// list is empty?</font>
+      v-&gt;next = v;				<font color=#0000FF>// v points to itself</font>
+      cursor = v;				<font color=#0000FF>// cursor points to v</font>
+    }
+    <font color=#00A000>else</font> {					<font color=#0000FF>// list is nonempty?</font>
+      v-&gt;next = cursor-&gt;next;			<font color=#0000FF>// link in v after cursor</font>
+      cursor-&gt;next = v;
+    }
+  }
+</dl>
+
+</body>
+</html>

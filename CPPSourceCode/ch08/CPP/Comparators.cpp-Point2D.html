@@ -1,0 +1,24 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Point2D</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Point2D</font></h2>
+</center><br><dl><dd><pre>
+
+  priority_queue&lt;Point2D, vector&lt;Point2D&gt;, LeftRight&gt; p2;
+  p2.<font color=#000000>push</font>( <font color=#000000>Point2D</font>(8.5, 4.6) );			<font color=#0000FF>// add three points to p2</font>
+  p2.<font color=#000000>push</font>( <font color=#000000>Point2D</font>(1.3, 5.7) );
+  p2.<font color=#000000>push</font>( <font color=#000000>Point2D</font>(2.5, 0.6) );
+  cout &lt;&lt; p2.<font color=#000000>top</font>() &lt;&lt; endl;  p2.<font color=#000000>pop</font>();		<font color=#0000FF>// output: (8.5, 4.6)</font>
+  cout &lt;&lt; p2.<font color=#000000>top</font>() &lt;&lt; endl;  p2.<font color=#000000>pop</font>();		<font color=#0000FF>// output: (2.5, 0.6)</font>
+  cout &lt;&lt; p2.<font color=#000000>top</font>() &lt;&lt; endl;  p2.<font color=#000000>pop</font>();		<font color=#0000FF>// output: (1.3, 5.7)</font>
+</dl>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Position</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Position</font></h2>
+</center><br><dl><dd><pre>
+
+    <font color=#A000A0>class</font> Position {					<font color=#0000FF>// position in the tree</font>
+    <font color=#A000A0>private</font>:
+      Node* v;						<font color=#0000FF>// pointer to the node</font>
+    <font color=#A000A0>public</font>:
+      <font color=#000000>Position</font>(Node* _v = NULL) : <font color=#000000>v</font>(_v) { }		<font color=#0000FF>// constructor</font>
+      Elem& <font color=#A000A0>operator</font>*()					<font color=#0000FF>// get element</font>
+        { <font color=#00A000>return</font> v-&gt;elt; }
+      Position <font color=#000000>left</font>() <font color=#A000A0>const</font>				<font color=#0000FF>// get left child</font>
+        { <font color=#00A000>return</font> <font color=#000000>Position</font>(v-&gt;left); }
+      Position <font color=#000000>right</font>() <font color=#A000A0>const</font>				<font color=#0000FF>// get right child</font>
+        { <font color=#00A000>return</font> <font color=#000000>Position</font>(v-&gt;right); }
+      Position <font color=#000000>parent</font>() <font color=#A000A0>const</font>				<font color=#0000FF>// get parent</font>
+        { <font color=#00A000>return</font> <font color=#000000>Position</font>(v-&gt;par); }
+      <font color=#A000A0>bool</font> <font color=#000000>isRoot</font>() <font color=#A000A0>const</font>				<font color=#0000FF>// root of the tree?</font>
+        { <font color=#00A000>return</font> v-&gt;par == NULL; }
+      <font color=#A000A0>bool</font> <font color=#000000>isExternal</font>() <font color=#A000A0>const</font>				<font color=#0000FF>// an external node?</font>
+        { <font color=#00A000>return</font> v-&gt;left == NULL && v-&gt;right == NULL; }
+      <font color=#A000A0>friend</font> <font color=#A000A0>class</font> LinkedBinaryTree;			<font color=#0000FF>// give tree access</font>
+    };
+    <font color=#A000A0>typedef</font> std::list&lt;Position&gt; PositionList;		<font color=#0000FF>// list of positions</font>
+</dl>
+
+</body>
+</html>

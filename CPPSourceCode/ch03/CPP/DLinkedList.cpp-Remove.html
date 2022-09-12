@@ -1,0 +1,30 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Remove</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Remove</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>void</font> DLinkedList::<font color=#000000>remove</font>(DNode* v) {		<font color=#0000FF>// remove node v</font>
+    DNode* u = v-&gt;prev;				<font color=#0000FF>// predecessor</font>
+    DNode* w = v-&gt;next;				<font color=#0000FF>// successor</font>
+    u-&gt;next = w;				<font color=#0000FF>// unlink v from list</font>
+    w-&gt;prev = u;
+    <font color=#A000A0>delete</font> v;
+  }
+
+  <font color=#A000A0>void</font> DLinkedList::<font color=#000000>removeFront</font>()		<font color=#0000FF>// remove from font</font>
+    { <font color=#000000>remove</font>(header-&gt;next); }
+  
+  <font color=#A000A0>void</font> DLinkedList::<font color=#000000>removeBack</font>()		<font color=#0000FF>// remove from back</font>
+    { <font color=#000000>remove</font>(trailer-&gt;prev); }
+</dl>
+
+</body>
+</html>

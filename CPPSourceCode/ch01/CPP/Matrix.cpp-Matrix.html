@@ -1,0 +1,39 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Matrix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Matrix</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>class</font> Vector {				<font color=#0000FF>// a 3-element vector</font>
+  <font color=#A000A0>public</font>: <font color=#0000FF>// ... public members omitted</font>
+  <font color=#A000A0>private</font>:
+    <font color=#A000A0>double</font> coord[3];				<font color=#0000FF>// storage for coordinates</font>
+    <font color=#A000A0>friend</font> <font color=#A000A0>class</font> Matrix;			<font color=#0000FF>// give Matrix access to coord</font>
+  };
+
+  <font color=#A000A0>class</font> Matrix { 				<font color=#0000FF>// a 3x3 matrix</font>
+  <font color=#A000A0>public</font>:
+    Vector <font color=#000000>multiply</font>(<font color=#A000A0>const</font> Vector& v);		<font color=#0000FF>// multiply by vector v</font>
+    <font color=#0000FF>// ... other public members omitted</font>
+  <font color=#A000A0>private</font>:
+    <font color=#A000A0>double</font> a[3][3];				<font color=#0000FF>// matrix entries</font>
+  };
+
+  Vector Matrix::<font color=#000000>multiply</font>(<font color=#A000A0>const</font> Vector& v) {	<font color=#0000FF>// multiply by vector v</font>
+    Vector w;
+    <font color=#00A000>for</font> (<font color=#A000A0>int</font> i = 0; i &lt; 3; i++)
+      <font color=#00A000>for</font> (<font color=#A000A0>int</font> j = 0; j &lt; 3; j++)
+        w.coord[i] += a[i][j] * v.coord[j];	<font color=#0000FF>// access to coord allowed</font>
+    <font color=#00A000>return</font> w;
+  }
+</dl>
+
+</body>
+</html>

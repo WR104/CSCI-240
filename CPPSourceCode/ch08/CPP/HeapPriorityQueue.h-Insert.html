@@ -1,0 +1,28 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Insert</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Insert</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> E, <font color=#A000A0>typename</font> C&gt;		<font color=#0000FF>// insert element</font>
+  <font color=#A000A0>void</font> HeapPriorityQueue&lt;E,C&gt;::<font color=#000000>insert</font>(<font color=#A000A0>const</font> E& e) {
+    T.<font color=#000000>addLast</font>(e);				<font color=#0000FF>// add e to heap</font>
+    Position v = T.<font color=#000000>last</font>();			<font color=#0000FF>// e's position</font>
+    <font color=#00A000>while</font> (!T.<font color=#000000>isRoot</font>(v)) {			<font color=#0000FF>// up-heap bubbling</font>
+      Position u = T.<font color=#000000>parent</font>(v);
+      <font color=#00A000>if</font> (!<font color=#000000>isLess</font>(*v, *u)) <font color=#00A000>break</font>;		<font color=#0000FF>// if v in order, we're done</font>
+      T.<font color=#000000>swap</font>(v, u);				<font color=#0000FF>// ...else swap with parent</font>
+      v = u;
+    }
+  }
+</dl>
+
+</body>
+</html>

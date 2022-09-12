@@ -1,0 +1,41 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body link="blue" vlink="purple" bgcolor="#FFFABB" text="black">
+
+<h2><font face="Helvetica">Code Fragment: Class</font></h2>
+</center><br><dl><dd><pre>
+
+  <font color=#A000A0>template</font> &lt;<font color=#A000A0>typename</font> G&gt;
+  <font color=#A000A0>class</font> DFS {						<font color=#0000FF>// generic DFS</font>
+  <font color=#A000A0>protected</font>: 						<font color=#0000FF>// local types</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> G::Vertex Vertex;			<font color=#0000FF>// vertex position</font>
+    <font color=#A000A0>typedef</font> <font color=#A000A0>typename</font> G::Edge Edge;			<font color=#0000FF>// edge position</font>
+    <font color=#0000FF>// ...insert other typename shortcuts here</font>
+  <font color=#A000A0>protected</font>: 						<font color=#0000FF>// member data</font>
+    <font color=#A000A0>const</font> G& graph;					<font color=#0000FF>// the graph</font>
+    Vertex start;					<font color=#0000FF>// start vertex</font>
+    Object *yes, *no;					<font color=#0000FF>// decorator values</font>
+  <font color=#A000A0>protected</font>:						<font color=#0000FF>// member functions</font>
+    <font color=#000000>DFS</font>(<font color=#A000A0>const</font> G& g);					<font color=#0000FF>// constructor</font>
+    <font color=#A000A0>void</font> <font color=#000000>initialize</font>();					<font color=#0000FF>// initialize a new DFS</font>
+    <font color=#A000A0>void</font> <font color=#000000>dfsTraversal</font>(<font color=#A000A0>const</font> Vertex& v);			<font color=#0000FF>// recursive DFS utility</font>
+  							<font color=#0000FF>// overridden functions</font>
+    <font color=#A000A0>virtual</font> <font color=#A000A0>void</font> <font color=#000000>startVisit</font>(<font color=#A000A0>const</font> Vertex& v) {}		<font color=#0000FF>// arrived at v</font>
+    							<font color=#0000FF>// discovery edge e</font>
+    <font color=#A000A0>virtual</font> <font color=#A000A0>void</font> <font color=#000000>traverseDiscovery</font>(<font color=#A000A0>const</font> Edge& e, <font color=#A000A0>const</font> Vertex& from) {}
+    							<font color=#0000FF>// back edge e</font>
+    <font color=#A000A0>virtual</font> <font color=#A000A0>void</font> <font color=#000000>traverseBack</font>(<font color=#A000A0>const</font> Edge& e, <font color=#A000A0>const</font> Vertex& from) {}
+    <font color=#A000A0>virtual</font> <font color=#A000A0>void</font> <font color=#000000>finishVisit</font>(<font color=#A000A0>const</font> Vertex& v) {}	<font color=#0000FF>// finished with v</font>
+    <font color=#A000A0>virtual</font> <font color=#A000A0>bool</font> <font color=#000000>isDone</font>() <font color=#A000A0>const</font> { <font color=#00A000>return</font> <font color=#A000A0>false</font>; }	<font color=#0000FF>// finished?</font>
+    <font color=#0000FF>// ...insert marking utilities here</font>
+  };
+</dl>
+
+</body>
+</html>
