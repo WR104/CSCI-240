@@ -1,7 +1,6 @@
 package PA3;
 
 import net.datastructures.Stack;
-
 import net.datastructures.LinkedStack;
 public class Exercise2 {
     String error = "inappropriate expression";
