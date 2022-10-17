@@ -35,6 +35,7 @@ public class ChainHashMap<K,V> extends AbstractHashMap<K,V> {
   // a fixed capacity array of UnsortedTableMap that serve as buckets
   private UnsortedTableMap<K,V>[] table;   // initialized within createTable
 
+  private int probes = 0;   //modify by Mike
   // provide same constructors as base class
   /** Creates a hash table with capacity 11 and prime factor 109345121. */
   public ChainHashMap() { super(); }
@@ -59,11 +60,25 @@ public class ChainHashMap<K,V> extends AbstractHashMap<K,V> {
    * @param k  the key of interest
    * @return   associate value (or null, if no such entry)
    */
+  // @Override
+  // protected V bucketGet(int h, K k) {
+  //   UnsortedTableMap<K,V> bucket = table[h];
+  //   if (bucket == null) return null;
+  //   return bucket.get(k);
+  // }
   @Override
   protected V bucketGet(int h, K k) {
     UnsortedTableMap<K,V> bucket = table[h];
-    if (bucket == null) return null;
-    return bucket.get(k);
+    if(bucket == null) return null;
+    V res = bucket.get(k);
+    probes += bucket.getProbes() + 1;   //at least one probe + addition probes
+    return res;
+  }
+
+  public int getProbes(){   //return probes and reset
+    int temp = probes;
+    probes = 0;
+    return temp;
   }
 
   /**
@@ -115,15 +130,5 @@ public class ChainHashMap<K,V> extends AbstractHashMap<K,V> {
         for (Entry<K,V> entry : table[h].entrySet())
           buffer.add(entry);
     return buffer;
-  }
-
-  public int SumOfEntry(){
-    int count = 0;
-
-    for(int i=0;i<table.length;i++) {
-      if(table[i] != null)
-        count += table[i].size();
-    }
-    return count;
   }
 }
