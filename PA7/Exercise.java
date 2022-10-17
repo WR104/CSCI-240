@@ -104,7 +104,7 @@ public class Exercise {
         for (int i = 0; i < testCSHC.length; i++) {
             hashList = new ArrayList<>();
             for (String s : words)
-                hashList.add(CylclicShiftHashCode(testCSHC[i], s));      //transfer every word into hash code,the add it to the hashlist
+                hashList.add(CylclicShiftHashCode(testCSHC[i], s));      //transfer every word into hash code,then add it to the hashlist
             set = new HashSet<>(hashList);  //remove all the collision
             System.out.println("When the shift is " + testCSHC[i] + ", the amount of collisions are " + (words.size() - set.size()));
             //the difference would be the amount of collisions
