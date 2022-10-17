@@ -1,3 +1,0 @@
-D:\CLion\bin\cmake\win\bin\cmake.exe -E rm -f CMakeFiles\CSCI_240.dir/objects.a
-D:\MinGW\mingw64\bin\ar.exe cr CMakeFiles\CSCI_240.dir/objects.a @CMakeFiles\CSCI_240.dir\objects1.rsp
-D:\MinGW\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\CSCI_240.dir/objects.a -Wl,--no-whole-archive -o CSCI_240.exe -Wl,--out-implib,libCSCI_240.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\CSCI_240.dir\linklibs.rsp
