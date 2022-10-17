@@ -1,0 +1,3 @@
+D:/CSCI-240/cmake-build-debug/CMakeFiles/CSCI_240.dir
+D:/CSCI-240/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/CSCI-240/cmake-build-debug/CMakeFiles/rebuild_cache.dir

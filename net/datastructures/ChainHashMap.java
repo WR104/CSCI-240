@@ -116,4 +116,14 @@ public class ChainHashMap<K,V> extends AbstractHashMap<K,V> {
           buffer.add(entry);
     return buffer;
   }
+
+  public int SumOfEntry(){
+    int count = 0;
+
+    for(int i=0;i<table.length;i++) {
+      if(table[i] != null)
+        count += table[i].size();
+    }
+    return count;
+  }
 }
