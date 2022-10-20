@@ -36,6 +36,7 @@ import java.util.NoSuchElementException;
 public class UnsortedTableMap<K,V> extends AbstractMap<K,V> {
   /** Underlying storage for the map of entries. */
   private ArrayList<MapEntry<K,V>> table = new ArrayList<>();
+  int probes = 0;   //modify by Mike
 
   /** Constructs an initially empty map. */
   public UnsortedTableMap() { }
@@ -44,10 +45,18 @@ public class UnsortedTableMap<K,V> extends AbstractMap<K,V> {
   /** Returns the index of an entry with equal key, or -1 if none found. */
   private int findIndex(K key) {
     int n = table.size();
-    for (int j=0; j < n; j++)
+    for (int j=0; j < n; j++){
       if (table.get(j).getKey().equals(key))
         return j;
+      probes += 1;
+    }
     return -1;                                   // special value denotes that key was not found
+  }
+
+  public int getProbes(){
+    int temp = probes;
+    probes = 0;
+    return temp;    //return probes after each find,and set probes = 0;
   }
 
   // public methods

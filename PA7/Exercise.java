@@ -1,6 +1,7 @@
 package PA7;
 
 import net.datastructures.ChainHashMap;
+import net.datastructures.Entry;
 
 import java.io.File;
 import java.io.IOException;
@@ -104,11 +105,46 @@ public class Exercise {
         for (int i = 0; i < testCSHC.length; i++) {
             hashList = new ArrayList<>();
             for (String s : words)
-                hashList.add(CylclicShiftHashCode(testCSHC[i], s));      //transfer every word into hash code,the add it to the hashlist
+                hashList.add(CylclicShiftHashCode(testCSHC[i], s));      //transfer every word into hash code,then add it to the hashlist
             set = new HashSet<>(hashList);  //remove all the collision
             System.out.println("When the shift is " + testCSHC[i] + ", the amount of collisions are " + (words.size() - set.size()));
             //the difference would be the amount of collisions
         }
+    }
 
+    double[] loadFactors = {0.25,0.5,0.75};
+    public void EC2() throws IOException{
+        File file = new File("/Volumes/D/CSCI-240/PA7/popLarge.txt");
+        Scanner scanner = new Scanner(file);
+        int N = scanner.nextInt();
+        scanner.nextLine();
+        String[] data = new String[N];
+        int i=0;
+        while(scanner.hasNext())
+            data[i++] = scanner.nextLine();
+        scanner.close();            //convert the file into a String array
+
+        ChainHashMap<String,String> map;
+        int probes = 0, MaxProbes = 0;
+        for(double loadFactor : loadFactors){
+            int size = (int)(N/loadFactor+1);       //size  = (N/LF) + 1
+            map = new ChainHashMap<>(size);
+            for(String s : data){
+                String key = s.substring(0,5);  //key as the first vlaue
+                String value = s.substring(6);
+                map.put(key, value);
+            }
+            for(String s : data){       //search every keys to find the probes
+                String key = s.substring(0,5);
+                map.get(key);
+                int tempProbes = map.getProbes();
+                MaxProbes = tempProbes > MaxProbes ? tempProbes : MaxProbes;    //find Max Probes
+                probes += tempProbes;       //totoal probes
+            }
+            System.out.print("When the load factor is: " + loadFactor + ", ");
+            System.out.print("The size is: " + map.size() + ", ");
+            System.out.print("The average number of probes is: " + (int)(probes / data.length) + ", ");
+            System.out.println("The maximum number of probes is: " + MaxProbes + ".");
+        }
     }
 }
