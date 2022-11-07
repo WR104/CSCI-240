@@ -25,30 +25,38 @@ public class PopMap {
     }
 
     public void find(int code){
-        if(map.get(code) == null)
-            System.out.println("Can not find " + code);
-        else
-            System.out.println(code + ": " + map.get(code));
+        map.setExaminedNodes();
+        if(map.get(code) == null) {
+            System.out.println("Can not find " + code + "; Examined Nodes are: " + map.ExmaineNodes());
+        }
+        else {
+            map.setExaminedNodes();
+            System.out.println(code + ": " + map.get(code) + "; Examined Nodes are: " + map.ExmaineNodes());
+        }
     }
 
     public void insert(int code, int pop, String county){
         String value = String.valueOf(pop)+",\"" + county + "\"";
+        map.setExaminedNodes();
         if(map.get(code) == null){
             map.put(code,value);
-            System.out.println(code + ": " + value  + " has been successfully inserted");
+            System.out.println(code + ": " + value  + " has been successfully inserted" + "; Examined Nodes are: " + map.ExmaineNodes());
         }
         else{
+            map.setExaminedNodes();
             String old = map.put(code,value);
-            System.out.println(code + ": " + old + " has been replaced to " + value);
+            System.out.println(code + ": " + old + " has been replaced to " + value  + "; Examined Nodes are: " + map.ExmaineNodes());
         }
     }
 
     public void erase(int code){
+        map.setExaminedNodes();
         if(map.get(code) == null){
-            System.out.println("code is not found");
+            System.out.println("code is not found" + "; Examined Nodes are: " + map.ExmaineNodes());
         } else {
+            map.setExaminedNodes();
             String old = map.remove(code);
-            System.out.println(code + ": " + old + " has been removed");
+            System.out.println(code + ": " + old + " has been removed" + "; Examined Nodes are: " + map.ExmaineNodes());
         }
     }
 
@@ -59,5 +67,6 @@ public class PopMap {
             Entry<Integer, String> e = it.next();
             System.out.println(e.getKey() + ": " + e.getValue());
         }
+        System.out.println("-------------------------------------------------");
     }
 }
