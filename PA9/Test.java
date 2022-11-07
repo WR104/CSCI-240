@@ -50,7 +50,7 @@ public class Test {
     }
 
     private static void print(List list, int a) {
-        QuickSort3 QS = new QuickSort3();
+        HeapSort QS = new HeapSort();
         long start = System.currentTimeMillis();
         if (a == 1)
             QS.sort(list, new CompbyInteger());
@@ -75,7 +75,7 @@ public class Test {
 
 
     public static void main(String[] args) throws IOException {
-        QuickSort3 QS = new QuickSort3();
+        HeapSort QS = new HeapSort();
         Scanner scanner = new Scanner(System.in);
         String FileName;
 
