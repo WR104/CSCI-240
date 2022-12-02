@@ -205,10 +205,19 @@ public class AdjacencyListGraph<V, E> implements Graph<V, E> {
         StringBuilder sb = new StringBuilder();
         for (Vertex<V> v : vertices) {
             sb.append("Vertex " + v.getElement() + "\n");
-            sb.append(" " + outDegree(v) + " adjacencies: ");
-            for (Edge<E> e : outgoingEdges(v))
-                sb.append(String.format(" (%s, %s)", opposite(v, e).getElement(), e.getElement()));
+            if (isDirected)
+                sb.append(" [outgoing]");
+            sb.append(" " + outDegree(v) + " adjacencies:");
+            for (Edge<E> e: outgoingEdges(v))
+                sb.append(String.format(" (%s, %s)", opposite(v,e).getElement(), e.getElement()));
             sb.append("\n");
+            if (isDirected) {
+                sb.append(" [incoming]");
+                sb.append(" " + inDegree(v) + " adjacencies:");
+                for (Edge<E> e: incomingEdges(v))
+                    sb.append(String.format(" (%s, %s)", opposite(v,e).getElement(), e.getElement()));
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }

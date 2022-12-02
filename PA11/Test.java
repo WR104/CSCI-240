@@ -3,27 +3,31 @@ package PA11;
 import net.datastructures.Edge;
 import net.datastructures.Vertex;
 
-import java.util.Map;
-
 public class Test {
     public static void main(String[] args){
-        Vertex<String> A,B,C,D,E;
-        Edge<Integer> e;
-        AdjacencyListGraph<String,Integer> graph = new AdjacencyListGraph<>(true);
+        AdjacencyMatrixGraph<String,Integer> graph = new AdjacencyMatrixGraph<>();
+        Vertex<String> A,B,C,D;
+        Edge<Integer> AB,AC,AD,BC,BD,CD;
+        //Test Case 1
+        A = graph.insertVertex("A");
+        B = graph.insertVertex("B");
+        AB = graph.insertEdge(A,B,100);
+        C = graph.insertVertex("C");
+        AC = graph.insertEdge(A,C,200);
+        System.out.println(graph);
+
+        //Test Case 2
+        graph = new AdjacencyMatrixGraph<>();
         A = graph.insertVertex("A");
         B = graph.insertVertex("B");
         C = graph.insertVertex("C");
         D = graph.insertVertex("D");
-        E = graph.insertVertex("E");
-        graph.insertEdge(B,A,3);
-        graph.insertEdge(B,C,4);
-        graph.insertEdge(A,E,10);
-        graph.insertEdge(A,D,5);
-        graph.insertEdge(C,D,2);
-        graph.insertEdge(D,E,3);
-        graph.insertEdge(E,C,6);
-
-        Map<Vertex<String>,Integer> map = GraphMethods.shortestPath(graph,B,E);
-
+        AB = graph.insertEdge(A,B,100);
+        AD = graph.insertEdge(A,D,100);
+        BC = graph.insertEdge(B,C,100);
+        CD = graph.insertEdge(C,D,100);
+        AC = graph.insertEdge(A,C,200);
+        BD = graph.insertEdge(B,D,200);
+        System.out.println(graph);
     }
 }
