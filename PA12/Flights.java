@@ -1,20 +1,13 @@
 package PA12;
 
+import PA11.AdjacencyListGraph;
+import net.datastructures.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-
-import PA11.AdjacencyListGraph;
-import net.datastructures.Edge;
-import net.datastructures.Entry;
-import net.datastructures.HeapAdaptablePriorityQueue;
-import net.datastructures.ProbeHashMap;
-import net.datastructures.Vertex;
+import java.util.*;
 
 public class Flights {
     AdjacencyListGraph<String, Double> graph;
@@ -26,7 +19,7 @@ public class Flights {
         vertices = new ArrayList<>();
         map = new HashMap<>();
 
-        Scanner scanner = new Scanner(new File("/Volumes/D/CSCI-240/PA12/PA12Flights.txt"));
+        Scanner scanner = new Scanner(new File("D:\\CSCI-240\\PA12\\PA12Flights.txt"));
         while (scanner.hasNext()) {
             String str = scanner.nextLine();
             String source = str.substring(0, 3);
@@ -58,7 +51,7 @@ public class Flights {
         while (!"Q".equals(choice)) {
             if ("0".equals(choice))
                 print();
-            else if ("1".equals(choice) || "2".equals(choice)) {
+            else if ("1".equals(choice) || "2".equals(choice) || "4".equals(choice)) {
                 System.out.println("Please enter the source airport code and destination airport code");
                 String[] str = scanner.nextLine().split(" ");
                 Vertex<String> u = map.get(str[0]);
@@ -66,17 +59,23 @@ public class Flights {
                 if (u == null || v == null)
                     break;
 
-                printPath(shortestLengths(u, v));
-                if("2".equals(choice))
-                    printPath(shortestLengths(v, u));
+                if("4".equals(choice)){
+                    ArrayList<String> tempList = shortestLengths(u, v, false);
+                    for(int i=0; i<tempList.size(); i+=2 )
+                        System.out.print(tempList.get(i) + " ");
+                    System.out.println();
+                }
+                else {
+                    printPath(shortestLengths(u, v, true));
+                    if ("2".equals(choice))
+                        printPath(shortestLengths(v, u, true));
+                }
             }
             else if("3".equals(choice)){
                 System.out.print("Please enter the starting airport: ");
                 String start = scanner.nextLine();
                 net.datastructures.Map<Vertex<String>, Edge<Double>> forest = DFS(map.get(start));
                 System.out.print(map.get(start).getElement());
-                for(Entry<Vertex<String>, Edge<Double>> entry : forest.entrySet())
-                    System.out.print(" -> " + entry.getKey().getElement());
                 System.out.println();
             }
             System.out.println();
@@ -99,7 +98,7 @@ public class Flights {
                 System.out.println(" total: $" + paths.get(paths.size()-1));
     }
 
-    public ArrayList<String> shortestLengths(Vertex<String> src, Vertex<String> end) {
+    public ArrayList<String> shortestLengths(Vertex<String> src, Vertex<String> end, Boolean weighted) {
         net.datastructures.Map<Vertex<String>, Double> d = new ProbeHashMap<>();
         net.datastructures.Map<Vertex<String>, Double> cloud = new ProbeHashMap<>();
         net.datastructures.Map<Vertex<String>, Vertex<String>> prevs = new ProbeHashMap<>();
@@ -124,7 +123,11 @@ public class Flights {
             for (Edge<Double> e : graph.outgoingEdges(u)) {
                 Vertex<String> v = graph.opposite(u, e);
                 if (cloud.get(v) == null) {
-                    double wgt = e.getElement();
+                    double wgt;
+                    if(weighted)
+                        wgt = e.getElement();
+                    else
+                        wgt = 1.0 ;
                     if (d.get(u) + wgt < d.get(v)) {
                         d.put(v, d.get(u) + wgt);
                         prevs.put(v, u);
@@ -160,6 +163,7 @@ public class Flights {
             Vertex<String> v = graph.opposite(u, e);
             if (!known.contains(v)) {
                 forest.put(v, e);                      // e is the tree edge that discovered v
+                System.out.print(v.getElement() + " -> ");
                 DFShelper(v, known, forest);              // recursively explore from v
             }
         }
@@ -175,4 +179,5 @@ public class Flights {
                 DFShelper(u, known, forest);
         return forest;
     }
+
 }
