@@ -9,14 +9,15 @@ public class Test {
         int[] small1k = new int[1000];
         int[] large100k = new int[100000];
         long start, end;
-        int k = 0, res = 0;
-        Scanner scanner = new Scanner(new File("D:\\CSCI-240\\Makeup\\small1k.txt"));
+        int k = 0;
+        long res = 0;
+        Scanner scanner = new Scanner(new File("/Volumes/D/CSCI-240/Makeup/small1k.txt"));
         while(scanner.hasNext())
-            small1k[k] = scanner.nextInt();
+            small1k[k++] = scanner.nextInt();
         k = 0;
-        scanner = new Scanner(new File("D:\\CSCI-240\\Makeup\\large100k.txt"));
+        scanner = new Scanner(new File("/Volumes/D/CSCI-240/Makeup/large100k.txt"));
         while(scanner.hasNext())
-            large100k[k] = scanner.nextInt();
+            large100k[k++] = scanner.nextInt();
 
         start = System.currentTimeMillis();
         res = FindInversions.method1(small1k);
