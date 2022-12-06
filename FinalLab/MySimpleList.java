@@ -25,7 +25,25 @@ public class MySimpleList <E> {
     }
 
     public void insertRear(E e){
+        Node node = new Node(e);
+        if(head == null)
+            head = node;
+        else{
+            Node curr = head;
+            while(curr.next != null)
+                curr = curr.next;
+            curr.next = node;
+        }
+        size += 1;
+    }
 
+    public E removeFront(){
+        if(head == null)
+            return null;
+        E e = head.data;
+        head = head.next;
+        size -= 1;
+        return e;
     }
 
     public E removeRear(){
@@ -37,7 +55,7 @@ public class MySimpleList <E> {
             return e;
         }
         Node curr = head;
-        for(int i = 0; i < size - 2; i++){
+        while(curr.next.next != null){
             curr = curr.next;
         }
         E e = curr.next.data;
@@ -47,7 +65,7 @@ public class MySimpleList <E> {
     }
 
     public boolean empty(){
-        return head == null;
+        return size == 0;
     }
 
     public int size(){
@@ -65,4 +83,5 @@ public class MySimpleList <E> {
         }
         System.out.println("]");
     }
+
 }

@@ -22,6 +22,12 @@ public class DAGExample {
     }
 
     public void print() {
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++)
+                System.out.print(matrix[i][j] + " ");
+            System.out.println();
+        }
+        System.out.println();
         System.out.print("Vertex    Edges");
         for (int i = 0; i < n; i++) {
             System.out.print("\n" + i + "         ");
